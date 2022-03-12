@@ -1,4 +1,4 @@
-//1--DEFINNIR VALORES QUE ALMACENEN LOS SIGUIENTES DATOS:
+//1--DEFINIR VALORES QUE ALMACENEN LOS SIGUIENTES DATOS:
 
 
 // UN NOMBRE
@@ -17,6 +17,7 @@ const misSeriesFavoritas = [
     "The office",
 ]
 
+//MIS PELICULAS FAVORITAS, CON SU NOMBRE, FECHA DE LANZAMIENTO Y ACTORES PRINCIPALES
 const misPeliculasFavoritas = [
     {
         movie: 'The Sandlot',
