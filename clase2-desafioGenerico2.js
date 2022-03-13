@@ -2,12 +2,16 @@
 
 
 class Contador{
-    constructor(responsable, cuentaIndividual){
-        this.responsable = responsable;
-        this.cuentaIndividual = cuentaIndividual;
-    }
 
-    static cuentaGlobal = 0
+    responsable;
+    cuentaIndividual;
+    static cuentaGlobal = 0;
+
+
+    constructor(responsable){
+        this.responsable = responsable;
+        this.cuentaIndividual = 0;
+    }
 
     obtenerResponsable() {
         return this.responsable
@@ -18,21 +22,30 @@ class Contador{
     }
 
     obtenerCuentaGlobal() {
-        return cuentaGlobal
+        return Contador.cuentaGlobal;
     }
 
     contar() {
-        this.cuentaIndividual++
-        this.cuentaGlobal++
+        this.cuentaIndividual++;
+        Contador.cuentaGlobal++;
     }
 }
 
 
-const pers1 = new Contador("Noelia", 0)
+const pers1 = new Contador("Noelia")
+const pers2 = new Contador("Belen")
 
 pers1.obtenerResponsable()
 pers1.obtenerCuentaIndividual()
 pers1.contar()
 pers1.contar()
 
-console.log(pers1);
+pers2.obtenerResponsable()
+pers2.obtenerCuentaIndividual()
+pers2.contar()
+pers2.contar()
+pers2.contar()
+pers2.contar()
+
+console.log(Contador);
+console.log("persona1: ",pers1, "persona2: ", pers2);
