@@ -90,7 +90,7 @@ class Contenedor {
           }
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+//METODO GET ALL
     getAll() {
         const data = Productos
         return data
@@ -100,9 +100,21 @@ class Contenedor {
         
         */
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//METODO DELETE BY ID
+    deleteById(idNumber) {
+
+        const data = Productos     /*JSON.parse(fs.readFileSync(filePath, 'utf-8'));*/
+
+        const productoBorrado = data.findIndex( element => element.id == idNumber);
+
+        Productos.splice(productoBorrado,1)
+        
+    }
+
 } 
 
-///////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////
 
 const miContenedor = new Contenedor();
 
@@ -120,5 +132,11 @@ console.log(buscarProd);
 
 const todosLosProductos = miContenedor.getAll()
 console.log(todosLosProductos);
+
+const eliminar = miContenedor.deleteById(1)
+console.log(eliminar);
+
+const arrayConElemBorrado = miContenedor.getAll()
+console.log(arrayConElemBorrado);
 
 
