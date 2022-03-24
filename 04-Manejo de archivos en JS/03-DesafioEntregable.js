@@ -74,7 +74,6 @@ class Contenedor {
     getById (idNumber) {
         try {
             const data = Productos     /*JSON.parse(fs.readFileSync(filePath, 'utf-8'));*/
-            console.log(data);
             const productId = data.find((element) => element.id == idNumber);
 
                 if (productId){
@@ -92,8 +91,9 @@ class Contenedor {
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    getAll(Productos) {
-        console.log(Productos);
+    getAll() {
+        const data = Productos
+        return data
 
         /* const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
             console.log(data)
@@ -105,6 +105,7 @@ class Contenedor {
 ///////////////////////////////////////////////////////////////////////////////
 
 const miContenedor = new Contenedor();
+
 const obj1 = {                                                                                                                                                    
     title: 'Escuadra',                                                                                                                                 
     price: 12.345,                                                                                                                                     
@@ -116,4 +117,8 @@ console.log(nuevoProducto);
 
 const buscarProd = miContenedor.getById(1)
 console.log(buscarProd);
+
+const todosLosProductos = miContenedor.getAll()
+console.log(todosLosProductos);
+
 
