@@ -40,7 +40,7 @@ FORMATO DE LOS PRODUCTOS:
 */
 const fs = require('fs');
 
-const filePath = '/productos.txt'
+const filePath = './productos.txt'
 const Productos = []
 
 class Contenedor {
@@ -90,12 +90,30 @@ class Contenedor {
             console.log(err.message)
           }
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    getAll(Productos) {
+        console.log(Productos);
+
+        /* const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            console.log(data)
+        
+        */
+    }
 } 
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const obj1 = new Contenedor ( 'Escuadra',200,'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png')
-console.log(obj1);
-const guardarObjeto = obj1.save(obj1)
-console.log(guardarObjeto);
+const miContenedor = new Contenedor();
+const obj1 = {                                                                                                                                                    
+    title: 'Escuadra',                                                                                                                                 
+    price: 12.345,                                                                                                                                     
+    thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',                                                                                                                                                                                 
+  }
+
+const nuevoProducto = miContenedor.save(obj1)
+console.log(nuevoProducto);
+
+const buscarProd = miContenedor.getById(1)
+console.log(buscarProd);
 
