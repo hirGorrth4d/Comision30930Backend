@@ -40,103 +40,131 @@ FORMATO DE LOS PRODUCTOS:
 */
 const fs = require('fs');
 
-const filePath = './productos.txt'
-const Productos = []
-
 class Contenedor {
-
-    constructor(title,price,thumbnail){
-        this.title = title,
-        this.price = price,
-        this.thumbnail = thumbnail    
+    constructor(nombreArchivo) {
+        this.archivo = nombreArchivo
     }
 
+///METODOS GET Y SAVE DATA
+
+async getData() {
+    const data = await fs.promises.readFile(this.archivo, 'utf-8');
+    return JSON.parse(data)
+}
+async saveData(data) {
+    await fs.promises.writeFile(this.archivo, JSON.stringify(data, null, '\t'));
+
+}
+
 //METODO SAVE
-    save(product) {   
+    async save(product) {   
         //SI NO HAY PRODUCTOS LE ASIGNAMOS EL ID 1, SI NO LE ASIGNAMOS 1 MAS QUE EL ÚLTIMO DEL ARRAY
-            if (Productos == []) {
-               product.id = 1
-            }
-            else{
-                product.id = Productos.length + 1
-            }
+        const productos = await this.getData();
+        let id;
+
+        if (productos.length === 0) id = 1;
+        else id = productos[productos.length - 1].id + 1
+
+        const productoNuevo = {
+            id: id,
+            title: product.title,
+            price: product.price,
+            thumbnail: product.thumbnail
+          };
+
         //LO AGREGAMOS AL ARRAY
-        Productos.push(product)
+        productos.push(productoNuevo)
 
         //LO AGREGAMOS AL ARCHIVO
-        // fs.writeFileSync(filePath, Productos) 
+        await this.saveData(productos) 
         
         //RETORNAMOS EL ID DEL PRODUCTO AGREGADO
-        return product.id
+        return productoNuevo.id
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //MÉTODO GET BY ID
-    getById (idNumber) {
-        try {
-            const data = Productos     /*JSON.parse(fs.readFileSync(filePath, 'utf-8'));*/
-            const productId = data.find((element) => element.id == idNumber);
+    async getById (idNumber) {
+        const data = await this.getData();
 
-                if (productId){
+        const productId = data.find((element) => element.id == idNumber);
 
-                    console.log("ID A BUSCAR: ", idNumber, "PRODUCTO ENCONTRADO: ", productId);
-                }
-                else{
-                    return null
-                }
-          
-        } catch (err) {
-            console.log('Error lectura Sincronica');
-            console.log(err.message)
-          }
+                if (productId)console.log("ID A BUSCAR: ", idNumber, "PRODUCTO ENCONTRADO: ", productId);
+                else return null
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //METODO GET ALL
-    getAll() {
-        const data = Productos
-        return data
+    async getAll() {
+        const data = await this.getData();
 
-        /* const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-            console.log(data)
-        
-        */
+        return data
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //METODO DELETE BY ID
-    deleteById(idNumber) {
+    async deleteById(idNumber) {
 
-        const data = Productos     /*JSON.parse(fs.readFileSync(filePath, 'utf-8'));*/
-
-        const productoBorrado = data.findIndex( element => element.id == idNumber);
-
-        Productos.splice(productoBorrado,1)
+        const data = await this.getData();
         
+
+        const nuevoArray = data.filter(
+            (unProducto) => unProducto.id != idNumber
+          );
+      
+          await this.saveData(nuevoArray);
+        
+    }
+
+    async deleteAll() {
+        const arrayVacio = []
+
+        await this.saveData(arrayVacio);
     }
 
 } 
 
     /////////////////////////////////////////////////////////////////////
 
-const miContenedor = new Contenedor();
 
 const obj1 = {                                                                                                                                                    
     title: 'Escuadra',                                                                                                                                 
     price: 12.345,                                                                                                                                     
     thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',                                                                                                                                                                                 
   }
+const obj2 = {                                                                                                                                                    
+    title: 'Calculadora',                                                                                                                              
+    price: 234.56,                                                                                                                                     
+    thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',                                          
+    id: 2                                                                                                                                              
+  }                                                                                                                                                   
+  const obj3 =  {                                                                                                                                                    
+    title: 'Globo Terráqueo',                                                                                                                          
+    price: 345.67,                                                                                                                                     
+    thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',                                   
+    id: 3                                                                                                                                              
+  }
 
-const nuevoProducto = miContenedor.save(obj1)
-console.log(nuevoProducto);
+const miContenedor = new Contenedor('productos.json');
 
-const buscarProd = miContenedor.getById(1)
-console.log(buscarProd);
+async function guardarObjeto(){
+    const resultado = await miContenedor.save(obj3)
+    return resultado
+}
 
-const todosLosProductos = miContenedor.getAll()
-console.log(todosLosProductos);
-
-const eliminar = miContenedor.deleteById(1)
-console.log(eliminar);
-
-const arrayConElemBorrado = miContenedor.getAll()
-console.log(arrayConElemBorrado);
+//guardarObjeto();
 
 
+async function obtenerPorId(){
+    const resultado = await miContenedor.getById(2)
+    return resultado
+}
+//obtenerPorId();
+
+async function todosLosProd(){
+    const resultado = await miContenedor.getAll()
+    console.log(resultado);
+}
+
+async function borrarTodo(){
+    const resultado = await miContenedor.deleteAll()
+    return resultado
+}
+//borrarTodo();
