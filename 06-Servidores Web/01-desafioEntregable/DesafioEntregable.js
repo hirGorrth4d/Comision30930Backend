@@ -58,7 +58,7 @@ const randomId = await ids[random]
 
 //LE PASO ESE ID A LA FUNCION GET BY ID DE CONTENEDOR
 const productoEncontrado = await Contenedor.getById(randomId)
-console.log("ANTES DEL RESSSS",productoEncontrado);
+
 
 res.json(productoEncontrado)
 
