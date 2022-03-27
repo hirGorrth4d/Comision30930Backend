@@ -23,7 +23,7 @@ let ejercicioC = ejercicioB / productos.length;
 
 //EJERCICIO D
 
-const logicaDeCOmparacion = (a,b) => {
+const logicaDeComparacion = (a,b) => {
     if (a.precio > b.precio) return 1;
     else if (a.precio < b.precio) return -1;
     else 0;
