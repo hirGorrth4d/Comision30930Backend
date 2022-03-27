@@ -46,15 +46,17 @@ const between = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min)
 };
 
-//genero un id random
+//GENERO UNA POSICIÓN RANDOM DEL ARRAY DE IDS
 const nroMax = ids.length
 
 let random = between(0, nroMax);
     console.log('RANDOM', random);
 
+//OBTENGO UNO DE LOS PRODUCTOS DE FORMA ALEATORIA
 const randomId = await ids[random]
     console.log('IDRANDOM', randomId);
 
+//LE PASO ESE ID A LA FUNCION GET BY ID DE CONTENEDOR
 const productoEncontrado = await Contenedor.getById(randomId)
 console.log("ANTES DEL RESSSS",productoEncontrado);
 
