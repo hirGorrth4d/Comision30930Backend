@@ -2,11 +2,11 @@
   "name": "6-servidores-web",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "servidorHTTP",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon servidorHTTP.js",
+    "start": "node servidorHTTP.js"
   },
   "keywords": [],
   "author": "",
