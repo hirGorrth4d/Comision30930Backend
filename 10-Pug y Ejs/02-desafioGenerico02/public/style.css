@@ -1,0 +1,10 @@
+#meter {
+    width: 50%;
+    height: 60px;
+  }
+  
+  .leyenda {
+  display: inline;
+  font-size:30px
+  }
+  
