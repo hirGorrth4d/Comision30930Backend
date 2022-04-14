@@ -22,5 +22,11 @@
 		"nombre": "Microscopio",
 		"precio": "5000",
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/microscope-lab-science-school-128.png"
+	},
+	{
+		"id": "c4908458-750a-4ecb-8707-091791a13302",
+		"nombre": "Libro",
+		"precio": "3000",
+		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png"
 	}
 ]
