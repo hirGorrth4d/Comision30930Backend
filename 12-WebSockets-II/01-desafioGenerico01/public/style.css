@@ -1,0 +1,10 @@
+.centroMensajes{
+    display: flex;
+    width: auto;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column nowrap;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+    background-color: palegreen;
+}
