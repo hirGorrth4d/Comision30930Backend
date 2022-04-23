@@ -4,7 +4,7 @@ const http = require('http')
 const io = require('socket.io') 
 const app = express();
 const { ProductosController } = require('./controller/productos');
-const productos = require('./controller/productos');
+
 
 //Servidor en express instanciado dentro de http
 const myServer = http.Server(app)
