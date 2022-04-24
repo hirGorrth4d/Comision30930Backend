@@ -10,13 +10,20 @@ server.on('error', (err) => {
     console.log('ERROR ATAJADO', err);
 });
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
 
 /**DISPONIBILAZACIÓN DE ARCHIVOS ESTÁTICOS */
 
 const publicPath = path.resolve(__dirname,'../public');
 app.use(express.static(publicPath));
 
+//CONFIGURACIÓN DE ejs
+app.set('view engine', 'ejs');
+const viewPath = path.resolve(__dirname, '../views')
+app.set('views', viewPath);
+
 /**DEFINICION DE LOS ROUTERS */
+app.get('/', (req,res) => {
+    res.render('pages/index')
+})
+
 app.use('/api', mainRouter);
