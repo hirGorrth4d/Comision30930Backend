@@ -7,6 +7,16 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+////////////middleware de autenticación
+function miMiddleware (req, res, next) {
+  const esAdmin = false
+  if (esAdmin == true) {
+    next();
+  } else {
+    res.json({msg: "NO PUEDE ACCEDER POR QUE NO ES ADMINISTRADOR"})
+  }
+}
+
 
 ///////GET
 router.get('/', async (req, res) => {
@@ -15,7 +25,7 @@ router.get('/', async (req, res) => {
     res.render('pages/productos', {productos})
   }
    catch (error) {
-    console.log('ERROR', error);
+    res.json({msg: "NO SE PUDO ACCEDER A LOS PRODUCTOS"})
   }
 })
 
@@ -29,12 +39,12 @@ router.get('/:id', async(req,res) => {
      res.render('pages/productos', {productos})
    }
    catch (error) {
-     console.log('ERROR', error);
+    res.json({msg: "PRODUCTO NO ENCONTRADO"})
   }
 })
 
 //post
-router.post('/', async(req,res) => {
+router.post('/',miMiddleware, async(req,res) => {
   const nuevoProducto = req.body
   console.log('NUEVO PRODUCTO ===>>', nuevoProducto);
   await ProductosController.save(nuevoProducto)
@@ -42,28 +52,38 @@ router.post('/', async(req,res) => {
     const productos = await ProductosController.getAll();
     res.render('pages/productos', {productos})
   } catch (error) {
-    console.log('ERROR', error);
+    res.json({msg: "ERROR AL CREAR PRODUCTO"})
   }
 })
 
-
 //put
+router.put('/:id',miMiddleware, async (req,res) => {
+  const body = req.body;
+  console.log(body);
+  const id = req.params.id
+  try {
+    await ProductosController.Update(id,body);
 
-router.put('/:id', async (req,res) => {
-    
-const body = req.body;
-console.log(body);
-const id = req.params.id
- try {
-  await ProductosController.Update(id,body);
+    const productos = await ProductosController.getAll();
+      res.render('pages/productos', {productos})
+  }
 
-  const productos = await ProductosController.getAll();
-    res.render('pages/productos', {productos})
- }
+  catch{
+    res.json({msg: "ERROR AL EDITAR EL PRODUCTO"})
+  }
+})
 
- catch{
-   res.json({msg: "PRODUCTO NO ENCONTRADO"})
- }
+///////DELETE by ID
+router.delete('/:id',miMiddleware, async(req,res) => {
+  const id = req.params.id
+  await ProductosController.deleteById(id);
+  try {
+    const productos = ProductosController.getAll();
+     res.render('pages/productos', {productos})
+   }
+   catch (error) {
+    res.json({msg: "ERROR AL ELIMINAR EL PRODUCTO"})
+  }
 })
 
 
