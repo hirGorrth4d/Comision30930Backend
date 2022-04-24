@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Productos</title>
 </head>
 <body>
@@ -13,10 +13,13 @@
         <button><a href="http://localhost:8080/api/carrito">Ir al Carrito</a></button>
         <h2>Todos los productos</h2>
     </header>
-    <main></main>
+    <main>
+        <section class="cardContainer">
+            <%- include('../partials/card'); %>
+        </section>
+    </main>
     <footer>
         Developed by: Noelia Cid
     </footer>
-    <script src="./client.js"></script>
 </body>
 </html>

@@ -11,8 +11,7 @@ server.on('error', (err) => {
 });
 
 
-/**DISPONIBILAZACIÓN DE ARCHIVOS ESTÁTICOS */
-
+/**DISPONIBILIZACIÓN DE ARCHIVOS ESTÁTICOS */
 const publicPath = path.resolve(__dirname,'../public');
 app.use(express.static(publicPath));
 
@@ -22,8 +21,5 @@ const viewPath = path.resolve(__dirname, '../views')
 app.set('views', viewPath);
 
 /**DEFINICION DE LOS ROUTERS */
-app.get('/', (req,res) => {
-    res.render('pages/index')
-})
-
-app.use('/api', mainRouter);
+app.use('/', mainRouter)
+app.use('/api', mainRouter)
