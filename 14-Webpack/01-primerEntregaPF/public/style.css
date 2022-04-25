@@ -87,7 +87,7 @@ td{
 /*TARJETAS*/
 .card {
     width: 13rem;
-    height: 23rem;
+    height: auto;
     padding: 1.2rem;
     background: #f5f5f5;
     position: relative;

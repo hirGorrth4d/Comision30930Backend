@@ -20,32 +20,25 @@ class Carrito {
     const carritos = await this.getData();
 
         let id;
-        const nuevoCarrito = []
 
         const newCart = {id: uuidv4(),
-                         timestamp: getClockTime()
+                         timestamp: getClockTime(),
+                         productos:[]
         }
-
-        nuevoCarrito.push(newCart);
-
-        carritos.push(nuevoCarrito);
+        carritos.push(newCart);
 
         await this.saveData(carritos);
         return newCart
     }
 
     async saveProduct(id,miObjeto){
+        
         const carrito = await this.getById(id);
+        console.log("id Carrito",carrito);
+        console.log("Mi objeto",miObjeto);
+        
 
-        const productoNuevo = {
-            id: uuidv4(),
-            nombre: miObjeto.nombre,
-            precio: miObjeto.precio,
-            thumbnail:miObjeto.thumbnail,
-        };
-        const newCart = {...carrito, productos: productoNuevo}
-
-        this.saveData(newCart)
+        //this.saveData(newCart)
     }
 
   async getById(number) {
