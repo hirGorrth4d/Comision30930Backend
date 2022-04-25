@@ -1,8 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /*BODY*/
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h2{
+    text-transform: uppercase;
+}
+a, a:hover, a:active, a::after{
+    color: #000;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    margin-top: 2rem;
+}
 main {
     height: auto;
     margin-bottom: 2rem;
-    
 }
 
 /*FOOTER*/
@@ -25,13 +42,24 @@ footer{
     column-gap: 10px;
     row-gap: 10px;
 }   
-
+/*form*/
+#formProductos{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+#formProductos p {
+    font-size: 13px;
+    font-weight: bold;
+}
 
 
 /*TARJETAS*/
 .card {
-    width: 190px;
-    height: 254px;
+    width: 13rem;
+    height: 23rem;
     padding: 1.2rem;
     background: #f5f5f5;
     position: relative;
@@ -40,9 +68,9 @@ footer{
    }
    
    .card-img {
-    background-color: #ffcaa6;
-    height: 40%;
-    width: 90%;
+    background-color: darkslateblue;
+    height: 30%;
+    width: 70%;
     border-radius: .5rem;
     transition: .3s ease;
    }
@@ -99,7 +127,59 @@ footer{
    }
    
    .card-button:hover {
-    border: 1px solid #ffcaa6;
-    background-color: #ffcaa6;
+    border: 1px solid darkslateblue;
+    background-color: darkslateblue;
    }
 
+/*BOTONES*/
+button {
+    --color: darkslateblue;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+    background-color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+   }
+   
+   button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   button:hover {
+    color: #fff;
+   }
+   
+   button:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   button:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   button:active:before {
+    background: darkslateblue;
+    transition: background 0s;
+   }

@@ -1,8 +1,8 @@
-
 const boton = document.getElementById("boton")
 
 const nombre = document.getElementById("nombre")
 const precio = document.getElementById("precio")
+const stock = document.getElementById("stock")
 const thumbnail = document.getElementById("thumbnail")
 
 boton.addEventListener('click', async () => {
@@ -22,9 +22,9 @@ boton.addEventListener('click', async () => {
             thumbnail: thumbnail.value
         })
   }
-  nombre.value = precio.value = thumbnail.value = ''
+  nombre.value = precio.value = stock.value = thumbnail.value = ''
   
-  await fetch('http://localhost:8080/', params)
+  await fetch('http://localhost:8080/api/productos/', params)
 
 })
 
