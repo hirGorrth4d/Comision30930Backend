@@ -1,0 +1,30 @@
+ <section class="tableContainer">
+      <table class="table table-success">
+          <thead>
+              <tr>
+                <th scope="col"> Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col"> Precio</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="tableContent">
+              <% if(carrito.length > 0) { %>
+                <% carrito.forEach(item=> { %>
+              <tr>
+                <td><img id="img" class="imgTabla" src="<%= item.thumbnail %>" alt=""></td>
+                <td id="nombre"><%= item.nombre %></td>
+                <td id="nombre">$<%= item.precio %></td>
+                <td><button class="deleteBtn">X</button></td>
+              </tr>
+              <% }) %>
+            <% } else { %>
+              <tr>
+                <td>
+                    No hay productos
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+      </table>
+  </section>

@@ -16,9 +16,15 @@
             <a href="http://localhost:8080/api/productos"><button>Productos</button></a>
         </div>
     </header>
-    <main></main>
+    <main>
+        <button id="btnCart" style="width: 10rem;">+ NUEVO CARRITO</button>
+        <% carrito.forEach(item=> { %>
+            <p>ID Carrito:<%= item.id %> -- Creación: <%= item.timestamp %></p>
+        <% }) %>
+    </main>
     <footer>
         Developed by: Noelia Cid
     </footer>
+    <script src="/createCart.js"></script>
 </body>
 </html>

@@ -94,7 +94,7 @@ router.delete('/:id',miMiddleware, async(req,res) => {
 
 
 
-////////////////////////hora y fecha
+////////////////////////timestamp
 
 function getClockTime(){
   let now    = new Date();
