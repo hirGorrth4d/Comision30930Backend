@@ -3,6 +3,7 @@ const boton = document.getElementById("boton")
 const nombre = document.getElementById("nombre")
 const precio = document.getElementById("precio")
 const stock = document.getElementById("stock")
+const descripcion = document.getElementById("descripcion")
 const thumbnail = document.getElementById("thumbnail")
 
 boton.addEventListener('click', async () => {
@@ -19,10 +20,12 @@ boton.addEventListener('click', async () => {
         body: JSON.stringify({
             nombre: nombre.value,
             precio: precio.value,
-            thumbnail: thumbnail.value
+            thumbnail: thumbnail.value,
+            descripcion:descripcion.value,
+            stock:stock.value,
         })
   }
-  nombre.value = precio.value = stock.value = thumbnail.value = ''
+  nombre.value = precio.value = stock.value = descripcion.value = thumbnail.value = ''
   
   await fetch('http://localhost:8080/api/productos/', params)
 

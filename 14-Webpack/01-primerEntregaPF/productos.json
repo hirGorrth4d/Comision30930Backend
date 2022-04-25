@@ -4,7 +4,7 @@
 		"nombre": "Escuadra",
 		"precio": 200,
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-128.png",
-		"timestamp": "25/4/2022-0:7:24",
+		"timestamp": "25/4/2022-01:52:07-AM",
 		"descripcion": "Artículo Escolar",
 		"stock": "5"
 	},
@@ -13,7 +13,7 @@
 		"nombre": "Globo terraqueo",
 		"precio": 1000,
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-128.png",
-		"timestamp": "25/4/2022-0:8:3",
+		"timestamp": "25/4/2022-01:52:07-AM",
 		"descripcion": "Artículo Escolar",
 		"stock": "3"
 	},
@@ -22,7 +22,7 @@
 		"nombre": "Lapiz",
 		"precio": 100,
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/pencil-pen-stationery-school-128.png",
-		"timestamp": "25/4/2022-0:8:51",
+		"timestamp": "25/4/2022-01:52:07-AM",
 		"descripcion": "Artículo Escolar",
 		"stock": "10"
 	},
@@ -31,7 +31,7 @@
 		"nombre": "Microscopio",
 		"precio": 5000,
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/microscope-lab-science-school-128.png",
-		"timestamp": "25/4/2022-0:9:21",
+		"timestamp": "25/4/2022-01:52:07-AM",
 		"descripcion": "Artículo Escolar",
 		"stock": "10"
 	},
@@ -40,22 +40,8 @@
 		"nombre": "Libro",
 		"precio": 3000,
 		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png",
-		"timestamp": "25/4/2022-0:9:47",
+		"timestamp": "25/4/2022-01:52:07-AM",
 		"descripcion": "Artículo Escolar",
 		"stock": "10"
-	},
-	{
-		"id": "145dad49-b18b-4dfb-9f35-f3e8a2e64bb3",
-		"nombre": "nombre",
-		"precio": "50",
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/tube-lab-science-school-128.png",
-		"timestamp": "25/4/2022-01:45:55-AM"
-	},
-	{
-		"id": "45f74bb5-e7fe-417d-bce8-181224ff05a0",
-		"nombre": "nuevo",
-		"precio": "50",
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/tube-lab-science-school-128.png",
-		"timestamp": "25/4/2022-01:46:12-AM"
 	}
 ]
