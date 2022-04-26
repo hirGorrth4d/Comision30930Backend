@@ -21,7 +21,7 @@ function miMiddleware (req, res, next) {
 router.get('/', async (req, res) => {
   const productos = await ProductosController.getAll();
   try {
-    res.render('pages/productos', {productos})
+    res.json({productos})
   }
    catch (error) {
     res.json({msg: "NO SE PUDO ACCEDER A LOS PRODUCTOS"})
@@ -35,7 +35,7 @@ router.get('/:id', async(req,res) => {
   const productos = []
   productos.push(productoEncontrado)
   try {
-     res.render('pages/productos', {productos})
+    res.json({productos})
    }
    catch (error) {
     res.json({msg: "PRODUCTO NO ENCONTRADO"})
@@ -52,7 +52,7 @@ router.post('/',miMiddleware, async(req,res) => {
   await ProductosController.save(newProd)
   try {
     const productos = await ProductosController.getAll();
-    res.render('pages/productos', {productos})
+    res.json({productos})
   } catch (error) {
     res.json({msg: "ERROR AL CREAR PRODUCTO"})
   }
@@ -70,7 +70,7 @@ router.put('/:id',miMiddleware, async (req,res) => {
     await ProductosController.Update(id,prodUpdated);
 
     const productos = await ProductosController.getAll();
-      res.render('pages/productos', {productos})
+    res.json({productos})
   }
 
   catch{
@@ -84,7 +84,7 @@ router.delete('/:id',miMiddleware, async(req,res) => {
   await ProductosController.deleteById(id);
   try {
     const productos = ProductosController.getAll();
-     res.render('pages/productos', {productos})
+    res.json({productos})
    }
    catch (error) {
     res.json({msg: "ERROR AL ELIMINAR EL PRODUCTO"})
