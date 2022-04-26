@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const { ProductosController } = require('./productsController');
+
 
 //Esto solo va a funcionar si el archivo ya existe
 class Carrito {
@@ -14,6 +16,12 @@ class Carrito {
 
   async saveData(data) {
         await fs.promises.writeFile(this.archivo, JSON.stringify(data, null, '\t'));
+  }
+
+  async getAll() {
+    const carritos = await this.getData();
+
+    return carritos;
   }
 
   async createCart() {
@@ -31,14 +39,20 @@ class Carrito {
         return newCart
     }
 
-    async saveProduct(id,miObjeto){
-        
-        const carrito = await this.getById(id);
-        console.log("id Carrito",carrito);
-        console.log("Mi objeto",miObjeto);
-        
+    async saveProduct(id,idProd){
 
-        //this.saveData(newCart)
+        const carrito = await this.getById(id);
+        const product = await ProductosController.getById(idProd)
+
+        carrito.productos.push(product);
+
+        const carritos = await this.getData();
+
+        const indice = carritos.findIndex((unCarrito) => unCarrito.id === id);
+
+        carritos.splice(indice,1,carrito)
+
+        await this.saveData(carritos);
     }
 
   async getById(number) {
@@ -54,12 +68,6 @@ class Carrito {
     return carritos[indice];
   }
 
-  async getAll() {
-    const carritos = await this.getData();
-
-    return carritos;
-  }
-
   async deleteById(number) {
     const carritos = await this.getData();
 
@@ -70,29 +78,16 @@ class Carrito {
     await this.saveData(nuevoArray);
   }
 
-  async deleteAll() {
-    const nuevo = [];
 
-    await this.saveData(nuevo);
-  }
+  async deleteProductById(idCarrito,idProd) {
+    const carrito = await this.getById(idCarrito);
+    const product = idProd
 
-  async Update(id, nuevaData) {
-    const productos = await this.getAll();
+    const nuevoArray = carrito.productos.filter(
+      (unProducto) => unProducto.id != product
+    );
 
-    const indice = productos.findIndex((unProducto) => unProducto.id === id);
-
-    if (indice < 0) throw new Error('no existe el producto');
-
-    const productUpdated = {
-      id,
-      ...nuevaData,
-    };
-
-    productos.splice(indice, 1, productUpdated);
-
-    await this.saveData(productos)
-
-    return productUpdated
+    await this.saveData(nuevoArray);
   }
 }
 

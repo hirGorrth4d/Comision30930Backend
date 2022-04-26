@@ -1,22 +1,17 @@
 [
 	{
-		"id": "8fc92e64-88ae-42a0-9ad0-36fb0c90c3fd",
-		"timestamp": "25/4/2022-06:52:40-PM",
-		"productos": []
-	},
-	{
-		"id": "4cf3b25e-0bc2-4c4c-bf17-26afe13c30a7",
-		"timestamp": "25/4/2022-06:53:23-PM",
-		"productos": []
-	},
-	{
-		"id": "320788b4-1ca1-4cc2-92d8-5a0a2e461de9",
-		"timestamp": "25/4/2022-06:54:06-PM",
-		"productos": []
-	},
-	{
-		"id": "6be244b8-f264-41ea-aeae-4ee08bc6559e",
-		"timestamp": "25/4/2022-07:30:44-PM",
-		"productos": []
+		"id": "4ac9fe17-581e-48a1-b42e-a60ba0ea2edc",
+		"timestamp": "26/4/2022-01:32:33-AM",
+		"productos": [
+			{
+				"id": "9a9e58dd-cb4b-429e-a308-c1c922b372d2",
+				"nombre": "Microscopio",
+				"precio": 5000,
+				"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/microscope-lab-science-school-128.png",
+				"timestamp": "25/4/2022-01:52:07-AM",
+				"descripcion": "Artículo Escolar",
+				"stock": "10"
+			}
+		]
 	}
 ]

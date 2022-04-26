@@ -6,7 +6,8 @@ const stock = document.getElementById("stock")
 const descripcion = document.getElementById("descripcion")
 const thumbnail = document.getElementById("thumbnail")
 
-boton.addEventListener('click', async () => {
+boton.addEventListener('click', async (e) => {
+    e.preventDefault();
     const params = {
         method: 'POST',
         mode: 'cors',
