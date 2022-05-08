@@ -1,9 +1,13 @@
 import {Router, Request, Response} from 'express'
+import { getAllProducts } from '../controller/productos'
+
 const router = Router()
 
-router.get('/', (req: Request, res: Response) =>{
+router.get('/', async (req: Request, res: Response) =>{
+    const data = await getAllProducts()
     res.json({
-        msg: 'Todos los productos'
+        msg: 'Todos los productos',
+        data
     })
 })
 router.get('/:id', (req: Request, res: Response) =>{

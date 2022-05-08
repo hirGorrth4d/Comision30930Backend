@@ -1,9 +1,15 @@
 import {Router, Request, Response} from 'express'
+import { getAllMsgs } from '../controller/messagges'
+
+
 const router = Router()
 
-router.get('/', (req: Request, res: Response) =>{
+router.get('/', async(req: Request, res: Response) =>{
+
+    const data = await getAllMsgs()
     res.json({
-        msg: 'Todos los mensajes'
+        msg: 'Todos los mensajes',
+        data
     })
 })
 
