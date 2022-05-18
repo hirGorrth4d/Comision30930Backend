@@ -1,8 +1,18 @@
-//importar las funciones desde api memoria
+import { MensajesController } from "../api/apiMemoria";
+
+export const checkBodyMsg = async (req, res, next) => {
+  const {nombre, mensaje} = req.body;
+
+  if (!nombre || !mensaje)
+    return res.status(400).json({
+      msg: 'missing Body fields',
+    });
+  next();
+};
 
 export const getAllMsg = async (req, res) => {
   try {
-    const msgs = 'Todos los mensajes'
+    const msgs = await MensajesController.get()
     res.json({
       data: msgs,
     });
@@ -17,14 +27,15 @@ export const getAllMsg = async (req, res) => {
 
 export const sendMsg = async (req, res) => {
   try {
-    const { name, msg } = req.body;
+    const { nombre, mensaje } = req.body;
 
-    if (!name || !msg)
+    if (!nombre || !mensaje)
       return res.status(400).json({
         msg: 'Invalid Body',
       });
 
-    const newMsg = {name: name, msg: msg}
+    const newMsg = {nombre:nombre,mensaje:mensaje}
+    await MensajesController.post(newMsg)
     res.json({
       data: newMsg,
     });

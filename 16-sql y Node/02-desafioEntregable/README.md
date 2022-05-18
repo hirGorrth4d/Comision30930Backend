@@ -37,7 +37,7 @@ GET||   localhost:8080/api/mensajes/:id  =>   TRAE TODOS LOS MENSAJES
 POST||  localhost:8080/api/mensajes =>  CREA UN MENSAJE
 =>  FORMATO DEL OBJETO:
 {
-    "name": "Noelia",
-    "msg": "Hola! que tal como te va?"
+    "nombre": "Noelia",
+    "mensaje": "Hola! que tal como te va?"
 }
 
