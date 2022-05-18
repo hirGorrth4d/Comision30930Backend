@@ -1,9 +1,9 @@
-//importar las funciones desde api archivo
+import { ProductosController } from "../api/apiArchivo";
 
 export const checkBodyProduct = async (req, res, next) => {
-  const { name, description, stock, price,} = req.body;
+  const {nombre, precio, thumbnail} = req.body;
 
-  if (!name || !description || !stock || !price)
+  if (!nombre || !precio || !thumbnail)
     return res.status(400).json({
       msg: 'missing Body fields',
     });
@@ -12,8 +12,8 @@ export const checkBodyProduct = async (req, res, next) => {
 
 export const getAllProducts = async (req, res) => {
   try {
-
-    const productos = 'Todos los productos'
+    
+    const productos = await ProductosController.get()
 
     res.json({
       data: productos,
@@ -30,7 +30,7 @@ export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const producto = 'Producto con id' + id
+    const producto = await ProductosController.getById(id)
 
     if (!producto)
       return res.status(404).json({
@@ -50,9 +50,11 @@ export const getProductById = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, stock, price} = req.body;
+    const { nombre, precio, thumbnail} = req.body;
 
-    const newProduct ={name,description,stock,price}
+    const newProduct ={nombre,precio,thumbnail}
+    
+    await ProductosController.post(newProduct)
 
     res.json({
       data: newProduct,
@@ -68,21 +70,23 @@ export const createProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, stock, price } = req.body;
+    const { nombre, precio, thumbnail} = req.body;
 
-    let producto = 'Producto encontrado por id ' + id
+    let productToUpdate = { nombre, precio, thumbnail}
 
-    if (!producto)
-      return res.status(404).json({
-        msgs: 'Product not found!',
-      });
-
-    const productUpdated = 'Se hizo update del producto'
+    const producto = await ProductosController.getById(id)
+      if (!producto)
+        return res.status(404).json({
+          msgs: 'Product not found!',
+        });
+      else  await ProductosController.update(id, productToUpdate)
+            const productUpdated = await ProductosController.getById(id)
 
     res.json({
       msg: 'Product updated',
       data: productUpdated,
     });
+
   } catch (err) {
     res.status(500).json({
       error: err.message,
@@ -95,7 +99,13 @@ export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
-    //funcion que busque por id y borre el elemento
+    const producto = await ProductosController.getById(id)
+      if (!producto)
+        return res.status(404).json({
+          msgs: 'Product not found!',
+        });
+        else await ProductosController.delete(id)
+
 
     res.json({
       msg: 'product deleted',

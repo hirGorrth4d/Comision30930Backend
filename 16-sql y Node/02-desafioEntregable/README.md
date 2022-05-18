@@ -14,17 +14,17 @@ GET||   localhost:8080/api/productos/:id  =>   UN PRODUCTO POR ID
 POST||  localhost:8080/api/productos =>  CREA UN PRODUCTO
 =>  FORMATO DEL OBJETO:
 {
-    "name": "Nombre del producto",
-    "description": "una descripción",
-    "stock": 6,
-    "price": 100
-}
+    "nombre": "Nombre del producto",
+    "precio": 100,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/plane-paper-toy-science-school-128.png"
 }
 
 PUT||   localhost:8080/api/productos/:id   => EDITA UN PRODUCTO POR ID
 =>  FORMATO DEL OBJETO:
 {
-
+    "nombre": "Nombre del producto",
+    "precio": 100,
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/plane-paper-toy-science-school-128.png"
 }
 
 DELETE||    localhost:8080/api/productos/:id    => ELIMINA UN PRODUCTO POR ID
