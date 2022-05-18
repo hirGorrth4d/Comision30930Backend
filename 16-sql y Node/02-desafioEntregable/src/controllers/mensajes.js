@@ -14,7 +14,7 @@ export const getAllMsg = async (req, res) => {
   try {
     const msgs = await MensajesController.get()
     res.json({
-      data: msgs,
+      msgs
     });
   } catch (err) {
     res.status(500).json({

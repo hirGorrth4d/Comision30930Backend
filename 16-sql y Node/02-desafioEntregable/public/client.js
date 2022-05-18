@@ -44,13 +44,9 @@ const text = document.getElementById('texto')
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-    let date_format = new Date();
-    let time = date_format.getDate()+'/'+ (date_format.getMonth()+1) +'/'+date_format.getFullYear()+'--'+date_format.getHours()+':'+date_format.getMinutes()+':'+date_format.getSeconds();
-
     const mensaje = {
-        author: author.value,
-        text: text.value,
-        time : time
+        nombre: author.value,
+        mensaje: text.value,
     };
     text.value = ''
     socket.emit('new-message', mensaje);
@@ -61,9 +57,9 @@ function render(data) {
 
     const html = data.map((elem) => {
         return(`<div>
-            <strong id="author">${elem.author}</strong> 
+            <strong id="author">${elem.nombre}</strong> 
             (<span id="time">${elem.time}</span>):
-            <em id="msg">${elem.text}</em> </div>`)
+            <em id="msg">${elem.mensaje}</em> </div>`)
     }).join(" ");
     document.getElementById('messages').innerHTML = html;
 }

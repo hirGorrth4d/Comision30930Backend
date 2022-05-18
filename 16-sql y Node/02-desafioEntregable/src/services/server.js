@@ -1,12 +1,11 @@
 import express from 'express';
 import mainRouter from '../routes';
 import http from 'http';
+import path from 'path'
 
 const app = express();
 
 app.use(express.json());
-
-app.use('/api', mainRouter);
 
 app.use(function (err, req, res, next) {
   return res.status('500').json({
@@ -14,6 +13,17 @@ app.use(function (err, req, res, next) {
     error: err.message,
   });
 });
+
+const publicPath = path.resolve(__dirname,'../../public');
+app.use(express.static(publicPath));
+
+//CONFIGURACIÓN DE ejs
+app.set('view engine', 'ejs');
+
+const viewPath = path.resolve(__dirname, '../../views')
+app.set('views', viewPath);
+
+app.use('/api', mainRouter);
 
 const httpServer = http.Server(app);
 
