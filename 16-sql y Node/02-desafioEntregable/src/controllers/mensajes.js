@@ -24,7 +24,7 @@ export const sendMsg = async (req, res) => {
         msg: 'Invalid Body',
       });
 
-    const newMsg = {nombre: name, mensaje: msg}
+    const newMsg = {name: name, msg: msg}
     res.json({
       data: newMsg,
     });
