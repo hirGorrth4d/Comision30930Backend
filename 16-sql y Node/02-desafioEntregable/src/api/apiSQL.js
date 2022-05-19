@@ -78,8 +78,11 @@ class DB {
  }
 
   create(tableName, data) {
-    return this.connection(tableName).insert(data);
-  }
+    this.connection('tableName').insert(data) 
+     .then(() => console.log('Data inserted!')) 
+      .catch((err) => { console.log('There was an error inserting the New product');
+       console.log(err); })
+      }
 
   update(tableName, id, data) {
     return this.connection(tableName).where('id', id).update(data);
