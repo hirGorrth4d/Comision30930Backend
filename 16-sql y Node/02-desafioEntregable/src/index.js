@@ -1,5 +1,5 @@
-import { getAllMsg } from './controllers/mensajes';
-import { getAllProducts } from './controllers/productos';
+
+import { ProductosController } from './api/apiArchivo';
 import server from './services/server';
 const io = require('socket.io') 
 
@@ -18,11 +18,11 @@ server.listen(puerto, () => console.log(`SERVER UP ON PORT ${puerto}`));
 //servidor de websockets que recibe nuestro servidor express instanciado en https
 const myWSServer = io(server)
 
-app.get('/', async (req, res) => {
-
-    const productos = await getAllProducts()
-    const messages = getAllMsg()
-    res.render('pages/index')
+    const prods = ProductosController.get()
+    console.log(prods);
+    
+    const productos = []
+    const messages = []
 
     myWSServer.on('connection', function(socket) {
         console.log('Un cliente se ha conectado');
@@ -31,16 +31,14 @@ app.get('/', async (req, res) => {
         socket.emit('productos', productos);
 
         socket.on('new-message', data => {
-            messages.push(data);
             myWSServer.sockets.emit('messages', messages);
         });
 
         socket.on('new-product', async(nuevoProducto) => {
-            await ProductosController.save(nuevoProducto);
             myWSServer.sockets.emit('productos', productos);
         });
 
     });
-});
+
 
 

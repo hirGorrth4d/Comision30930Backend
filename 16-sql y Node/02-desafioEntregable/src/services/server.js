@@ -23,6 +23,10 @@ app.set('view engine', 'ejs');
 const viewPath = path.resolve(__dirname, '../../views')
 app.set('views', viewPath);
 
+app.get('/', async (req, res) => {
+  res.render('pages/index')
+})
+
 app.use('/api', mainRouter);
 
 const httpServer = http.Server(app);

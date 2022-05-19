@@ -6,7 +6,7 @@ formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     const params = {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors',
         cache: 'no-cache',
         credentials: 'same-origin',
         headers: {

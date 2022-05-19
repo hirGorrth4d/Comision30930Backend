@@ -38,7 +38,7 @@ form.addEventListener('submit', (e) => {
 
 //FUNCION PARA ENVIAR MENSAJES AL SERVER
 
-const formulario = document.getElementById("form")
+const formulario = document.getElementById("formChat")
 const author = document.getElementById('username')
 const text = document.getElementById('texto')
 
