@@ -79,7 +79,8 @@ class DB {
 
   create(tableName, data) {
     this.connection('tableName').insert(data) 
-     .then(() => console.log('Data inserted!')) 
+     .then(() => console.log('Data inserted!') 
+        return this.connection.get(tableName)) 
       .catch((err) => { console.log('There was an error inserting the New product');
        console.log(err); })
       }
@@ -89,8 +90,10 @@ class DB {
   }
 
   delete(tableName, id) {
-    return this.connection(tableName).where('id', id).del();
+    this.connection('tableName').del() .where('id', id) 
+    .then(() => { console.log(`Element deleted`); 
+       return this.connection.get(tableName)
+     })
   }
-}
 
 export const DBService = new DB();
