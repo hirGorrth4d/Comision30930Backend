@@ -1,5 +1,11 @@
 ||DESAFIO CLASE 16||
 
+Si se quiere probar la persistencia en memoria y archivo 
+Cambiar las importaciones en la carpeta controllers y sus respectivos llamados a las funciones. 
+((Debo implementar import as*****))
+En la carpeta services, modificar la importación del archivo socket 
+Y en el archivo index.js de SRC comentar la función initDB
+
 ENDPOINTS DE PRODUCTOS PARA POSTMAN:
 
 GET||   localhost:8080/api/productos  =>  TODOS LOS PRODUCTOS
