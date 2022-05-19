@@ -1,4 +1,5 @@
-import { ProductosController } from "../api/apiArchivo";
+//import { ProductosController } from "../api/apiArchivo";
+import DBService from '../api/apiSQL'
 
 export const checkBodyProduct = async (req, res, next) => {
   const {nombre, precio, thumbnail} = req.body;
@@ -13,7 +14,7 @@ export const checkBodyProduct = async (req, res, next) => {
 export const getAllProducts = async (req, res) => {
   try {
     
-    const productos = await ProductosController.get()
+    const productos = await DBService.get('productos')
 
     res.json({
       data: productos,
@@ -30,7 +31,7 @@ export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const producto = await ProductosController.getById(id)
+    const producto = await DBService.get('productos', id)
 
     if (!producto)
       return res.status(404).json({
@@ -54,7 +55,7 @@ export const createProduct = async (req, res) => {
 
     const newProduct ={nombre,precio,thumbnail}
     
-    await ProductosController.post(newProduct)
+    await DBService.post('productos', newProduct)
 
     res.json({
       data: newProduct,
@@ -74,13 +75,13 @@ export const updateProduct = async (req, res) => {
 
     let productToUpdate = { nombre, precio, thumbnail}
 
-    const producto = await ProductosController.getById(id)
+    const producto = DBService.get('productos',id)
       if (!producto)
         return res.status(404).json({
           msgs: 'Product not found!',
         });
-      else  await ProductosController.update(id, productToUpdate)
-            const productUpdated = await ProductosController.getById(id)
+      else  await DBService.get('productos',id, productToUpdate)
+            const productUpdated = await DBService.update('productos',id)
 
     res.json({
       msg: 'Product updated',
@@ -99,12 +100,12 @@ export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const producto = await ProductosController.getById(id)
+    const producto = await DBService.get('productos',id)
       if (!producto)
         return res.status(404).json({
           msgs: 'Product not found!',
         });
-        else await ProductosController.delete(id)
+        else await DBService.delete('productos',id)
 
 
     res.json({

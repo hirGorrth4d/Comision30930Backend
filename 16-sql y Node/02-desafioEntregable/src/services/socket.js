@@ -1,6 +1,5 @@
 const socketIo = require('socket.io');
-const { ProductosController } = require('../api/apiArchivo');
-const { MensajesController } = require('../api/apiMemoria');
+import DBService from '../api/apiSQL'
 let io;
 
 const initWsServer = (server) => {
@@ -11,14 +10,14 @@ const initWsServer = (server) => {
     console.log(new Date());
 
     socket.on('allProducts', async () => {
-      const productos = await ProductosController.get()
+      const productos = await DBService.get('productos')
 
       productos.forEach((unProducto) => {
         socket.emit('producto', unProducto);
       });
     });
     socket.on('allMsgs', async () => {
-      const mensajes = await MensajesController.get()
+      const mensajes = await DBService.get('mensajes')
 
       mensajes.forEach((unMensaje) => {
         socket.emit('mensaje', unMensaje);

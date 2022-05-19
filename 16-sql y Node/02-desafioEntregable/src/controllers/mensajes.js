@@ -1,4 +1,6 @@
-import { MensajesController } from "../api/apiMemoria";
+//import { MensajesController } from "../api/apiMemoria";
+import DBService from '../api/apiSQL'
+
 
 export const checkBodyMsg = async (req, res, next) => {
   const {nombre, mensaje} = req.body;
@@ -12,7 +14,7 @@ export const checkBodyMsg = async (req, res, next) => {
 
 export const getAllMsg = async (req, res) => {
   try {
-    const msgs = await MensajesController.get()
+    const msgs = await DBService.get('mensajes')
     res.json({
       msgs
     });
@@ -35,7 +37,7 @@ export const sendMsg = async (req, res) => {
       });
 
     const newMsg = {nombre:nombre,mensaje:mensaje}
-    await MensajesController.post(newMsg)
+    await DBService.post('mensajes',newMsg)
     res.json({
       data: newMsg,
     });

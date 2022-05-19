@@ -1,4 +1,6 @@
 import server from './services/server';
+import { DBService } from '../src/api/apiSQL';
+DBService.init();
 
 
 //import {initMongoDB} from './services/database';
