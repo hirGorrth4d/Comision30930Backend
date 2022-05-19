@@ -64,10 +64,18 @@ class DB {
   }
 
   get(tableName) {
-    //if (id) return this.connection(tableName).where('id', id);
 
-    return this.connection(tableName);
-  }
+    //if (id) return this.connection(tableName).where('id', id);
+   
+ this.connection(tableName).select('*')
+  .then((tableName) {
+        return tableName
+   })
+  .catch((err) => {
+    console.log('There was an error selecting the table');
+    console.log(err);
+  )}
+ }
 
   create(tableName, data) {
     return this.connection(tableName).insert(data);
