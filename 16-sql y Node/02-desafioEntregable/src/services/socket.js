@@ -1,5 +1,5 @@
 const socketIo = require('socket.io');
-import DBService from '../api/apiSQL'
+import { DBService } from '../api/apiSQL'
 let io;
 
 const initWsServer = (server) => {

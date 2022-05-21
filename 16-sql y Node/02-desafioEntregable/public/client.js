@@ -19,7 +19,7 @@ const boxMensajes = document.getElementById('messages')
 const nvoMensaje = (elem) => {
   const fila = document.createElement('div');
   fila.innerHTML = `<strong id="author">${elem.nombre}</strong> 
-                    (<span id="time">${elem.timestamp}</span>):
+                    (<span id="time">${elem.created_at}</span>):
                     <em id="msg">${elem.mensaje}</em>`;
 
   boxMensajes.appendChild(fila);

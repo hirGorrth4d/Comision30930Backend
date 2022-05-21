@@ -1,5 +1,8 @@
 //import { ProductosController } from "../api/apiArchivo";
-import DBService from '../api/apiSQL'
+
+import { DBService } from "../api/apiSQL";
+
+
 
 export const checkBodyProduct = async (req, res, next) => {
   const {nombre, precio, thumbnail} = req.body;
@@ -13,7 +16,6 @@ export const checkBodyProduct = async (req, res, next) => {
 
 export const getAllProducts = async (req, res) => {
   try {
-    
     const productos = await DBService.get('productos')
 
     res.json({
@@ -27,6 +29,22 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+export const createProduct = (req, res) => {
+  try {
+    const { nombre, precio, thumbnail} = req.body;
+    const newProduct = { nombre, precio, thumbnail }
+     DBService.post('productos', newProduct)
+
+    res.json({
+      data: newProduct,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+      stack: err.stack,
+    });
+  }
+};
 export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,25 +67,6 @@ export const getProductById = async (req, res) => {
   }
 };
 
-export const createProduct = async (req, res) => {
-  try {
-    const { nombre, precio, thumbnail} = req.body;
-
-    const newProduct ={nombre,precio,thumbnail}
-    
-    await DBService.post('productos', newProduct)
-
-    res.json({
-      data: newProduct,
-    });
-  } catch (err) {
-    res.status(500).json({
-      error: err.message,
-      stack: err.stack,
-    });
-  }
-};
-
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -75,13 +74,13 @@ export const updateProduct = async (req, res) => {
 
     let productToUpdate = { nombre, precio, thumbnail}
 
-    const producto = DBService.get('productos',id)
+    const producto = DBService.get('productos', id)
       if (!producto)
         return res.status(404).json({
           msgs: 'Product not found!',
         });
-      else  await DBService.get('productos',id, productToUpdate)
-            const productUpdated = await DBService.update('productos',id)
+      else  await DBService.get('productos', id)
+            const productUpdated = await DBService.update('productos',id, productToUpdate)
 
     res.json({
       msg: 'Product updated',
@@ -100,12 +99,12 @@ export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const producto = await DBService.get('productos',id)
+    const producto = await DBService.get('productos')
       if (!producto)
         return res.status(404).json({
           msgs: 'Product not found!',
         });
-        else await DBService.delete('productos',id)
+        else await DBService.delete('productos', id)
 
 
     res.json({
