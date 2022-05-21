@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "6a38de9f-4d56-4485-8e4f-9a652aa93292",
+		"name": "API SQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PRODUCTOS-GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MENSAJES-GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mensajes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PRODUCTOS-GET-BY-ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PRODUCTOS-POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n\t\t\"nombre\": \"Cartuchera\",\r\n\t\t\"precio\": \"3000\",\r\n\t\t\"thumbnail\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png\"\r\n\t}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MENSAJES-POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n\t\t\"nombre\": \"Noelia\",\r\n\t\t\"mensaje\": \"Hola, que tal, como te va?\"\r\n\t}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mensajes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PRODUCTOS-PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n\t\t\"nombre\": \"Cuaderno\",\r\n\t\t\"precio\": \"8000\",\r\n\t\t\"thumbnail\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png\"\r\n\t}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PRODUCTOS-DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
