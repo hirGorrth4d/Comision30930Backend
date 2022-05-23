@@ -57,9 +57,7 @@ export const agregarProducto = async (req,res) => {
 
     const {idCarrito, idProducto} = req.params
 
-    const productToAdd = await ProductsModel.findById(idProducto)
-    const newCarrito = {idCarrito, productos:[...{productToAdd}]
-                          }
+    const newCarrito = await CarritoModel.create(... productos:[...ObjectId: idProducto]))
     const carritoUpdated = await CarritoModel.findByIdAndUpdate(idCarrito,newCarrito);
     
 
@@ -75,7 +73,7 @@ export const deleteCarrito = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const carrito = await ProductsModel.findByIdAndDelete(id)
+    const carrito = await CarritoModel.findByIdAndDelete(id)
       if (!carrito)
         return res.status(404).json({
           msgs: 'Carrito not found!',
