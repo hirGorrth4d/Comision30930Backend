@@ -1,4 +1,5 @@
 import { CarritoModel } from "../models/carritos";
+import { ProductsModel } from "../models/productos";
 
 export const getCarritos = async (req, res) => {
   try {
@@ -17,8 +18,7 @@ export const getCarritos = async (req, res) => {
 
 export const createCarrito = async(req, res) => {
   try {
-    const newCarrito = []
-    const cartCreated = await CarritoModel.create(newCarrito)
+     const cartCreated = await CarritoModel.create({})
 
     res.json({
       data: cartCreated,
@@ -31,29 +31,11 @@ export const createCarrito = async(req, res) => {
   }
 };
 
-export const agregarProducto = async (req,res) => {
-
-  /*
-  const carrito = await getCarritoById(id);
-        const product = await ProductosController.getById(idProd)
-
-        carrito.productos.push(product); con mongo
-
-        const carritos = await this.getData();
-
-        const indice = carritos.findIndex((unCarrito) => unCarrito.id === id);
-
-        carritos.splice(indice,1,carrito)
-
-        await this.saveData(carritos);
-  */
-  
-}
 export const getCarritoById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const carrito = [] //bd + id
+    const carrito = await CarritoModel.findById(id)
 
     if (!carrito)
       return res.status(404).json({
@@ -70,6 +52,36 @@ export const getCarritoById = async (req, res) => {
     });
   }
 };
+
+export const agregarProducto = async (req,res) => {
+
+    const {idCarrito, idProducto} = req.params
+
+    const productToAdd = await ProductsModel.findById(idProducto)
+    const newCarrito = {idCarrito, productos:[...{productToAdd}]
+                          }
+    const carritoUpdated = await CarritoModel.findByIdAndUpdate(idCarrito,newCarrito);
+    
+
+    res.json({
+      data: carritoUpdated,
+    });
+    
+    
+  /*
+  
+
+        carrito.productos.push(product); con mongo
+
+        const carritos = await this.getData();
+
+        const indice = carritos.findIndex((unCarrito) => unCarrito.id === id);
+
+        carritos.splice(indice,1,carrito)
+
+        await this.saveData(carritos);
+  */
+      }
 
 
 export const deleteCarrito = async (req, res) => {

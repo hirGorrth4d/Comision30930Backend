@@ -6,7 +6,7 @@ router.get('/', getCarritos);
 
 router.post('/',  createCarrito);
 
-router.post('/:id/productos' , agregarProducto)
+router.post('/:id/:idProducto' , agregarProducto)
 
 router.get('/:id', getCarritoById);
 
