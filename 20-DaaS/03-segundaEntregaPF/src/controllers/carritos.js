@@ -67,20 +67,7 @@ export const agregarProducto = async (req,res) => {
       data: carritoUpdated,
     });
     
-    
-  /*
-  
-
-        carrito.productos.push(product); con mongo
-
-        const carritos = await this.getData();
-
-        const indice = carritos.findIndex((unCarrito) => unCarrito.id === id);
-
-        carritos.splice(indice,1,carrito)
-
-        await this.saveData(carritos);
-  */
+   
       }
 
 
@@ -88,12 +75,11 @@ export const deleteCarrito = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const carrito = {} //bd 
+    const carrito = await ProductsModel.findByIdAndDelete(id)
       if (!carrito)
         return res.status(404).json({
           msgs: 'Carrito not found!',
-        });
-        else [] //bd + id
+        });   
 
 
     res.json({
