@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const connectionString = process.env.MONGO_ATLAS_SRV || 'mongodb://localhost:27017/ecommerce'
+const connectionString = process.env.MONGO_ATLAS_SRV || process.env.MONGO_DB_SRV //atlas o local
 
 export const initMongoDB = async () => {
   try {
