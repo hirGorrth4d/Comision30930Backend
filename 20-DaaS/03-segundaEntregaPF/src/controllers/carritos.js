@@ -54,32 +54,40 @@ export const getCarritoById = async (req, res) => {
 };
 
 export const agregarProducto = async (req,res) => {
+  try {
+    const {idCarrito,idProducto} = req.params
 
-    const {idCarrito, idProducto} = req.params
+    const product = await ProductsModel.findById(idProducto)
+    const carrito = await CarritoModel.findById(idCarrito)
 
-    const newCarrito = await CarritoModel.create(... productos:[...ObjectId: idProducto]))
-    const carritoUpdated = await CarritoModel.findByIdAndUpdate(idCarrito,newCarrito);
-    
-
+    if ( !carrito || !product )
+      return res.status(404).json({
+        msgs: 'Element not found!',
+      });
+    carrito.productos.push(product)
+    carrito.save()
     res.json({
-      data: carritoUpdated,
+      data: carrito,
     });
-    
-   
-      }
+
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+      stack: err.stack,
+    });
+  }
+}
 
 
 export const deleteCarrito = async (req, res) => {
   try {
     const { id } = req.params;
-
     const carrito = await CarritoModel.findByIdAndDelete(id)
-      if (!carrito)
-        return res.status(404).json({
-          msgs: 'Carrito not found!',
-        });   
-
-
+      
+    if (!carrito)
+      return res.status(404).json({
+        msgs: 'Carrito not found!',
+      });   
     res.json({
       msg: 'Carrito deleted',
     });

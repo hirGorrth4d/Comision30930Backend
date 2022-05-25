@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "7e92af5a-5235-4878-9a60-51b3bd6b11e5",
+		"name": "API MONGO ATLAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20336046"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "TODOS LOS PRODUCTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TRAER PORDUCTO POR ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/628ad80d1c6d149194a90150",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"628ad80d1c6d149194a90150"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREAR UN PRODUCTO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n\t\t\"nombre\": \"Libro\",\r\n\t\t\"precio\": \"3000\",\r\n\t\t\"thumbnail\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-128.png\",\r\n        \"descripcion\": \"Libro Nuevo\",\r\n        \"stock\": \"100\"\r\n\t}\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BORRAR UN PRODUCTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/628ad9608838dd096c2dee94",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"628ad9608838dd096c2dee94"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR UN PRODUCTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n\t\t\"nombre\": \"Microscopio\",\r\n\t\t\"precio\": \"5000\",\r\n\t\t\"thumbnail\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/microscope-lab-science-school-128.png\",\r\n        \"descripcion\": \"Microscopio\",\r\n        \"stock\": \"50000\"\r\n\t}\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/628ad3e7b081c1edafd07506",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"628ad3e7b081c1edafd07506"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito",
+			"item": [
+				{
+					"name": "TODOS LOS CARRITOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TRAER UN CARRITO POR ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/628b04ed41d204b999f42631",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"628b04ed41d204b999f42631"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREAR CARRITO NUEVO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AGREGAR-UN-PRODUCTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/628e3f4dc1f39ee05e1ac869/628ad3e7b081c1edafd07506",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"628e3f4dc1f39ee05e1ac869",
+								"628ad3e7b081c1edafd07506"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BORRAR UN CARRITO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/628e3f4dc1f39ee05e1ac869",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"628e3f4dc1f39ee05e1ac869"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

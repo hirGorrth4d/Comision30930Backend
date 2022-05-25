@@ -4,11 +4,11 @@ const router = Router();
 
 router.get('/', getCarritos);
 
+router.get('/:id', getCarritoById);
+
 router.post('/',  createCarrito);
 
-router.post('/:id/:idProducto' , agregarProducto)
-
-router.get('/:id', getCarritoById);
+router.put('/:idCarrito/:idProducto' , agregarProducto)
 
 router.delete('/:id', deleteCarrito);
 
