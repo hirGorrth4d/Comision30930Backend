@@ -8,6 +8,7 @@ app.use(cookieParser(mySecret));
 
 app.use(express.json());
 
+///CREAR UNA COOKIE
 app.post('/cookies', (req, res) => {
   let { key, value, tiempo, signed } = req.body;
   console.log(key, value, tiempo, signed);
@@ -28,6 +29,7 @@ app.post('/cookies', (req, res) => {
   }
 });
 
+///OBTENER LAS COOKIES
 app.get('/cookies', (req, res) => {
   res.json({
     normales: req.cookies,
@@ -35,6 +37,7 @@ app.get('/cookies', (req, res) => {
   });
 });
 
+//BORRAR UNA COOKIE
 app.delete('/cookies/:cookieKey', (req, res) => {
   let { cookieKey } = req.params;
 

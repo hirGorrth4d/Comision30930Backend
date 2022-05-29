@@ -5,14 +5,14 @@ import util from 'util';
 const app = express();
 
 app.use(express.json());
-app.use(
-  session({
-    secret: 'thisismysecret',
-    cookie: { maxAge: 1000 * 60 },
-    saveUninitialized: false,
-    resave: false,
-  })
-);
+
+const sessionConfig = {
+  secret: 'thisismysecret',
+  cookie: { maxAge: 1000 * 60 },
+  saveUninitialized: false,
+  resave: false,
+}
+app.use(session(sessionConfig));
 
 const users = [
   {
@@ -50,7 +50,7 @@ app.post('/logout', (req, res) => {
 });
 
 const validateLogIn = (req, res, next) => {
-  console.log(util.inspect(req.session, true, 7, true))
+  //console.log(util.inspect(req.session, true, 7, true))
   if (req.session.loggedIn === true) next();
   else res.status(401).json({ msg: 'no estas autorizado' });
 };
