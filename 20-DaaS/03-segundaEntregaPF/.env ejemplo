@@ -1,3 +1,0 @@
-MONGO_ATLAS_SRV= //tu string de mongo atlas
-MONGO_DB_SRV= //tu string de conexion a mongo db
-PORT=8080
