@@ -40,3 +40,8 @@ body{
     color: darkgreen;
     font-style: italic;
 }
+.avatar{
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}

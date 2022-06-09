@@ -11,16 +11,22 @@ socket.on('mensaje', (unMensaje) => {
 });
 
 /////////////////////mensajes////////////////////////////////
+const boxMensajes = document.getElementById('messages')
 const btnMensajes = document.getElementById("btnMensajes")
 const mensaje = document.getElementById('mensaje')
+const id = document.getElementById('id')
 const nombreMsj = document.getElementById('nombreMsg')
-const boxMensajes = document.getElementById('messages')
+const apellidoMsj = document.getElementById('apellidoMsg')
+const edad = document.getElementById('edad')
+const alias = document.getElementById('alias')
+const avatar = document.getElementById('avatar')
+
 
 const nvoMensaje = (elem) => {
   const fila = document.createElement('div');
-  fila.innerHTML = `<strong id="author">${elem.nombre}</strong> 
-                    (<span id="time">${elem.created_at}</span>):
-                    <em id="msg">${elem.mensaje}</em>`;
+  fila.innerHTML = `<img class="avatar" src="${elem.author.avatar}"/>
+                    <strong id="author">${elem.author.alias}</strong> 
+                    <em id="msg">${elem.text}</em>`;
 
   boxMensajes.appendChild(fila);
 };
@@ -29,7 +35,12 @@ btnMensajes.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
     const data = {
+      id: id.value,
       nombre: nombreMsj.value,
+      apellido: apellidoMsj.value,
+      edad: edad.value,
+      alias: alias.value,
+      avatar: avatar.value,
       mensaje: mensaje.value
     };
 

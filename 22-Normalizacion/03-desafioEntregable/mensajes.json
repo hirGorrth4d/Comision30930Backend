@@ -1,0 +1,35 @@
+[
+	{
+		"author": {
+			"id": "mail del usuario",
+			"nombre": "nombre del usuario",
+			"apellido": "apellido del usuario",
+			"edad": "edad del usuario",
+			"alias": "alias del usuario",
+			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/1-Girl-128.png"
+		},
+		"text": "mensaje del usuario"
+	},
+	{
+		"author": {
+			"id": "",
+			"nombre": "Noe",
+			"apellido": "",
+			"edad": "",
+			"alias": "Noe",
+			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/2-Boy-128.png"
+		},
+		"text": "Hola!"
+	},
+	{
+		"author": {
+			"id": "NOe",
+			"nombre": "NOe",
+			"apellido": "Noe",
+			"edad": "28",
+			"alias": "Noe",
+			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/2-Boy-128.png"
+		},
+		"text": "NOe!!!!!!!!!"
+	}
+]

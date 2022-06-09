@@ -1,6 +1,7 @@
 const socketIo = require('socket.io');
 import { DBService } from '../api/apiSQL'
 import { ProductosController } from '../api/apiFaker'
+import { MensajesController } from '../api/apiArchivoMensajes';
 let io;
 
 const initWsServer = (server) => {
@@ -18,7 +19,7 @@ const initWsServer = (server) => {
       });
     });
     socket.on('allMsgs', async () => {
-      const mensajes = await DBService.get('mensajes')
+      const mensajes = await MensajesController.get()
 
       mensajes.forEach((unMensaje) => {
         socket.emit('mensaje', unMensaje);

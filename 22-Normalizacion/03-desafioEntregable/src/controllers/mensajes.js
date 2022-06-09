@@ -1,5 +1,7 @@
 //import { MensajesController } from "../api/apiMemoria";
-import { DBService } from "../api/apiSQL";
+//import { DBService } from "../api/apiSQL";
+import { MensajesController } from "../api/apiArchivoMensajes";
+
 
 export const checkBodyMsg = async (req, res, next) => {
   const {nombre, mensaje} = req.body;
@@ -13,7 +15,7 @@ export const checkBodyMsg = async (req, res, next) => {
 
 export const getAllMsg = async (req, res) => {
   try {
-    const msgs = await DBService.get('mensajes')
+    const msgs = await MensajesController.get()
     res.json({
       msgs
     });
@@ -28,17 +30,17 @@ export const getAllMsg = async (req, res) => {
 
 export const sendMsg = async (req, res) => {
   try {
-    const { nombre, mensaje } = req.body;
+    const { id, nombre, apellido, edad, alias, avatar, mensaje } = req.body;
+    const mensajeNuevo = { id, nombre, apellido, edad, alias, avatar, mensaje }
 
     if (!nombre || !mensaje)
       return res.status(400).json({
         msg: 'Invalid Body',
       });
 
-    const newMsg = { nombre, mensaje }
-    await DBService.post('mensajes',newMsg)
+    await MensajesController.post(mensajeNuevo)
     res.json({
-      data: newMsg,
+      data: mensajeNuevo,
     });
   } catch (err) {
     res.status(500).json({
