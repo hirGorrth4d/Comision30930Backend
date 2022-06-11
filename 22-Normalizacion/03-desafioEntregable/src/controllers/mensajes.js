@@ -26,14 +26,27 @@ export const getAllMsg = async (req, res) => {
     });
   }
 };
+export const getAllMsgDesnormalized = async (req, res) => {
+  try {
+    const msgs = await MensajesController.getDesnormalized()
+    res.json({
+      msgs
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+      stack: err.stack,
+    });
+  }
+};
 
 
 export const sendMsg = async (req, res) => {
   try {
-    const { id, nombre, apellido, edad, alias, avatar, mensaje } = req.body;
-    const mensajeNuevo = { id, nombre, apellido, edad, alias, avatar, mensaje }
+    const { email, nombre, apellido, edad, alias, avatar, mensaje } = req.body;
+    const mensajeNuevo = { email, nombre, apellido, edad, alias, avatar, mensaje }
 
-    if (!nombre || !mensaje)
+    if (!mensaje)
       return res.status(400).json({
         msg: 'Invalid Body',
       });

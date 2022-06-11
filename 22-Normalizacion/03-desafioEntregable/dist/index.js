@@ -2,13 +2,17 @@
 
 var _server = _interopRequireDefault(require("./services/server"));
 
+var _apiSQL = require("../src/api/apiSQL");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-//import {initMongoDB} from './services/database';
+_apiSQL.DBService.init(); //import {initMongoDB} from './services/database';
 // const init = async () => {
 //   await initMongoDB();
 // }
 // init();
+
+
 var puerto = 8080;
 
 _server["default"].listen(puerto, function () {

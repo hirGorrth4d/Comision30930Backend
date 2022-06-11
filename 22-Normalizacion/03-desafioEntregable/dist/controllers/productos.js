@@ -3,24 +3,27 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateProduct = exports.getProductById = exports.getAllProducts = exports.deleteProduct = exports.createProduct = exports.checkBodyProduct = void 0;
+exports.updateProduct = exports.getProductById = exports.getAllProducts = exports.fakerProducts = exports.deleteProduct = exports.createProduct = exports.checkBodyProduct = void 0;
+
+var _apiSQL = require("../api/apiSQL");
+
+var _apiFaker = require("../api/apiFaker");
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//importar las funciones desde api archivo
 var checkBodyProduct = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res, next) {
-    var _req$body, name, description, stock, price;
+    var _req$body, nombre, precio, thumbnail;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _req$body = req.body, name = _req$body.name, description = _req$body.description, stock = _req$body.stock, price = _req$body.price;
+            _req$body = req.body, nombre = _req$body.nombre, precio = _req$body.precio, thumbnail = _req$body.thumbnail;
 
-            if (!(!name || !description || !stock || !price)) {
+            if (!(!nombre || !precio || !thumbnail)) {
               _context.next = 3;
               break;
             }
@@ -47,134 +50,174 @@ var checkBodyProduct = /*#__PURE__*/function () {
 
 exports.checkBodyProduct = checkBodyProduct;
 
-var getAllProducts = /*#__PURE__*/function () {
+var fakerProducts = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
     var productos;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            try {
-              productos = 'Todos los productos';
-              res.json({
-                data: productos
-              });
-            } catch (err) {
-              res.status(500).json({
-                error: err.message,
-                stack: err.stack
-              });
-            }
+            _context2.prev = 0;
+            _context2.next = 3;
+            return _apiFaker.ProductosController.get();
 
-          case 1:
+          case 3:
+            productos = _context2.sent;
+            res.json({
+              data: productos
+            });
+            _context2.next = 10;
+            break;
+
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+            res.status(500).json({
+              error: _context2.t0.message,
+              stack: _context2.t0.stack
+            });
+
+          case 10:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2);
+    }, _callee2, null, [[0, 7]]);
   }));
 
-  return function getAllProducts(_x4, _x5) {
+  return function fakerProducts(_x4, _x5) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-exports.getAllProducts = getAllProducts;
+exports.fakerProducts = fakerProducts;
 
-var getProductById = /*#__PURE__*/function () {
+var getAllProducts = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
-    var id, producto;
+    var productos;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            id = req.params.id;
-            producto = 'Producto con id' + id;
+            _context3.next = 3;
+            return _apiFaker.ProductosController.get();
 
-            if (producto) {
-              _context3.next = 5;
-              break;
-            }
-
-            return _context3.abrupt("return", res.status(404).json({
-              msgs: 'Product not found!'
-            }));
-
-          case 5:
+          case 3:
+            productos = _context3.sent;
             res.json({
-              data: producto
+              data: productos
             });
-            _context3.next = 11;
+            _context3.next = 10;
             break;
 
-          case 8:
-            _context3.prev = 8;
+          case 7:
+            _context3.prev = 7;
             _context3.t0 = _context3["catch"](0);
             res.status(500).json({
               error: _context3.t0.message,
               stack: _context3.t0.stack
             });
 
-          case 11:
+          case 10:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 8]]);
+    }, _callee3, null, [[0, 7]]);
   }));
 
-  return function getProductById(_x6, _x7) {
+  return function getAllProducts(_x6, _x7) {
     return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.getAllProducts = getAllProducts;
+
+var createProduct = function createProduct(req, res) {
+  try {
+    var _req$body2 = req.body,
+        nombre = _req$body2.nombre,
+        precio = _req$body2.precio,
+        thumbnail = _req$body2.thumbnail;
+    var newProduct = {
+      nombre: nombre,
+      precio: precio,
+      thumbnail: thumbnail
+    };
+
+    _apiSQL.DBService.post('productos', newProduct);
+
+    res.json({
+      data: newProduct
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+      stack: err.stack
+    });
+  }
+};
+
+exports.createProduct = createProduct;
+
+var getProductById = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
+    var id, producto;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            id = req.params.id;
+            _context4.next = 4;
+            return _apiSQL.DBService.get('productos', id);
+
+          case 4:
+            producto = _context4.sent;
+
+            if (producto) {
+              _context4.next = 7;
+              break;
+            }
+
+            return _context4.abrupt("return", res.status(404).json({
+              msgs: 'Product not found!'
+            }));
+
+          case 7:
+            res.json({
+              data: producto
+            });
+            _context4.next = 13;
+            break;
+
+          case 10:
+            _context4.prev = 10;
+            _context4.t0 = _context4["catch"](0);
+            res.status(500).json({
+              error: _context4.t0.message,
+              stack: _context4.t0.stack
+            });
+
+          case 13:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[0, 10]]);
+  }));
+
+  return function getProductById(_x8, _x9) {
+    return _ref4.apply(this, arguments);
   };
 }();
 
 exports.getProductById = getProductById;
 
-var createProduct = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
-    var _req$body2, name, description, stock, price, newProduct;
-
-    return regeneratorRuntime.wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-            try {
-              _req$body2 = req.body, name = _req$body2.name, description = _req$body2.description, stock = _req$body2.stock, price = _req$body2.price;
-              newProduct = {
-                name: name,
-                description: description,
-                stock: stock,
-                price: price
-              };
-              res.json({
-                data: newProduct
-              });
-            } catch (err) {
-              res.status(500).json({
-                error: err.message,
-                stack: err.stack
-              });
-            }
-
-          case 1:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4);
-  }));
-
-  return function createProduct(_x8, _x9) {
-    return _ref4.apply(this, arguments);
-  };
-}();
-
-exports.createProduct = createProduct;
-
 var updateProduct = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
-    var id, _req$body3, name, description, stock, price, producto, productUpdated;
+    var id, _req$body3, nombre, precio, thumbnail, productToUpdate, producto, productUpdated;
 
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
@@ -182,11 +225,16 @@ var updateProduct = /*#__PURE__*/function () {
           case 0:
             _context5.prev = 0;
             id = req.params.id;
-            _req$body3 = req.body, name = _req$body3.name, description = _req$body3.description, stock = _req$body3.stock, price = _req$body3.price;
-            producto = 'Producto encontrado por id ' + id;
+            _req$body3 = req.body, nombre = _req$body3.nombre, precio = _req$body3.precio, thumbnail = _req$body3.thumbnail;
+            productToUpdate = {
+              nombre: nombre,
+              precio: precio,
+              thumbnail: thumbnail
+            };
+            producto = _apiSQL.DBService.get('productos', id);
 
             if (producto) {
-              _context5.next = 6;
+              _context5.next = 9;
               break;
             }
 
@@ -194,29 +242,37 @@ var updateProduct = /*#__PURE__*/function () {
               msgs: 'Product not found!'
             }));
 
-          case 6:
-            productUpdated = 'Se hizo update del producto';
+          case 9:
+            _context5.next = 11;
+            return _apiSQL.DBService.get('productos', id);
+
+          case 11:
+            _context5.next = 13;
+            return _apiSQL.DBService.update('productos', id, productToUpdate);
+
+          case 13:
+            productUpdated = _context5.sent;
             res.json({
               msg: 'Product updated',
               data: productUpdated
             });
-            _context5.next = 13;
+            _context5.next = 20;
             break;
 
-          case 10:
-            _context5.prev = 10;
+          case 17:
+            _context5.prev = 17;
             _context5.t0 = _context5["catch"](0);
             res.status(500).json({
               error: _context5.t0.message,
               stack: _context5.t0.stack
             });
 
-          case 13:
+          case 20:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[0, 10]]);
+    }, _callee5, null, [[0, 17]]);
   }));
 
   return function updateProduct(_x10, _x11) {
@@ -228,30 +284,53 @@ exports.updateProduct = updateProduct;
 
 var deleteProduct = /*#__PURE__*/function () {
   var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
-    var id;
+    var id, producto;
     return regeneratorRuntime.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            try {
-              id = req.params.id; //funcion que busque por id y borre el elemento
+            _context6.prev = 0;
+            id = req.params.id;
+            _context6.next = 4;
+            return _apiSQL.DBService.get('productos');
 
-              res.json({
-                msg: 'product deleted'
-              });
-            } catch (err) {
-              res.status(500).json({
-                error: err.message,
-                stack: err.stack
-              });
+          case 4:
+            producto = _context6.sent;
+
+            if (producto) {
+              _context6.next = 9;
+              break;
             }
 
-          case 1:
+            return _context6.abrupt("return", res.status(404).json({
+              msgs: 'Product not found!'
+            }));
+
+          case 9:
+            _context6.next = 11;
+            return _apiSQL.DBService["delete"]('productos', id);
+
+          case 11:
+            res.json({
+              msg: 'product deleted'
+            });
+            _context6.next = 17;
+            break;
+
+          case 14:
+            _context6.prev = 14;
+            _context6.t0 = _context6["catch"](0);
+            res.status(500).json({
+              error: _context6.t0.message,
+              stack: _context6.t0.stack
+            });
+
+          case 17:
           case "end":
             return _context6.stop();
         }
       }
-    }, _callee6);
+    }, _callee6, null, [[0, 14]]);
   }));
 
   return function deleteProduct(_x12, _x13) {

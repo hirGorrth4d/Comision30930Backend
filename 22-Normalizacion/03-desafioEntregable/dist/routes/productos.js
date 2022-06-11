@@ -7,13 +7,14 @@ exports["default"] = void 0;
 
 var _express = require("express");
 
-var _products = require("../controllers/products");
+var _productos = require("../controllers/productos");
 
 var router = (0, _express.Router)();
-router.get('/', _products.getAllProducts);
-router.get('/:id', _products.getProductById);
-router.post('/', _products.checkBodyProduct, _products.createProduct);
-router.put('/:id', _products.checkBodyProduct, _products.updateProduct);
-router["delete"]('/:id', _products.deleteProduct);
+router.get('/productos-test', _productos.fakerProducts);
+router.get('/', _productos.getAllProducts);
+router.post('/', _productos.checkBodyProduct, _productos.createProduct);
+router.get('/:id', _productos.getProductById);
+router.put('/:id', _productos.checkBodyProduct, _productos.updateProduct);
+router["delete"]('/:id', _productos.deleteProduct);
 var _default = router;
 exports["default"] = _default;

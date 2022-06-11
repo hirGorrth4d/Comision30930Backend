@@ -1,35 +1,38 @@
 [
 	{
+		"_id": "19b3dd27-ab0c-4b94-8c52-2715a5ec6f6d",
 		"author": {
-			"id": "mail del usuario",
-			"nombre": "nombre del usuario",
-			"apellido": "apellido del usuario",
-			"edad": "edad del usuario",
-			"alias": "alias del usuario",
-			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/1-Girl-128.png"
-		},
-		"text": "mensaje del usuario"
-	},
-	{
-		"author": {
-			"id": "",
-			"nombre": "Noe",
-			"apellido": "",
-			"edad": "",
+			"email": "Noe@Cid",
+			"nombre": "Noelia",
+			"apellido": "Cid",
+			"edad": "29",
 			"alias": "Noe",
-			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/2-Boy-128.png"
+			"avatar": "https://cdn4.iconfinder.com/data/icons/people-avatar-filled-outline/64/girl_female_young_people_woman_teenager_avatar-512.png"
 		},
 		"text": "Hola!"
 	},
 	{
+		"_id": "641a68f3-a671-4b88-9f42-6db7a7615e53",
 		"author": {
-			"id": "NOe",
-			"nombre": "NOe",
-			"apellido": "Noe",
-			"edad": "28",
-			"alias": "Noe",
-			"avatar": "https://cdn2.iconfinder.com/data/icons/avatars-60/5985/2-Boy-128.png"
+			"email": "user2",
+			"nombre": "user2",
+			"apellido": "user2",
+			"edad": "29",
+			"alias": "user2",
+			"avatar": "https://cdn4.iconfinder.com/data/icons/people-avatar-filled-outline/64/adult_people_avatar_man_male_employee_tie-128.png"
 		},
-		"text": "NOe!!!!!!!!!"
+		"text": "Hola!"
+	},
+	{
+		"_id": "9af629d5-aee0-4e7e-8bbf-23dfd98b6e59",
+		"author": {
+			"email": "Noe@Cid",
+			"nombre": "Noelia",
+			"apellido": "Cid",
+			"edad": "29",
+			"alias": "Noe",
+			"avatar": "https://cdn4.iconfinder.com/data/icons/people-avatar-filled-outline/64/girl_female_young_people_woman_teenager_avatar-512.png"
+		},
+		"text": "Que tal, como te va?"
 	}
 ]

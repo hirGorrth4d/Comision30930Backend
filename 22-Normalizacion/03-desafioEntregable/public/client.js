@@ -1,3 +1,5 @@
+import {denormalizeData} from './normalizer.js'
+
 ///////////////////////////Socket//////////////////
 const socket = io();
 socket.emit('allProducts');
@@ -6,38 +8,46 @@ socket.emit('allMsgs');
 socket.on('producto', (unProducto) => {
   attachRow(unProducto);
 });
-socket.on('mensaje', (unMensaje) => {
-  nvoMensaje(unMensaje);
+socket.on('mensaje', (mensajes) => {
+  console.log(mensajes);
+
+	console.log('denormalized data');
+	const denormalizedData = denormalizeData(mensajes)
+  console.log(denormalizedData);
+
+  nvoMensaje(denormalizedData);
 });
 
 /////////////////////mensajes////////////////////////////////
 const boxMensajes = document.getElementById('messages')
 const btnMensajes = document.getElementById("btnMensajes")
 const mensaje = document.getElementById('mensaje')
-const id = document.getElementById('id')
-const nombreMsj = document.getElementById('nombreMsg')
-const apellidoMsj = document.getElementById('apellidoMsg')
+const email= document.getElementById('email')
+const nombre = document.getElementById('nombre')
+const apellido = document.getElementById('apellido')
 const edad = document.getElementById('edad')
 const alias = document.getElementById('alias')
 const avatar = document.getElementById('avatar')
 
 
-const nvoMensaje = (elem) => {
-  const fila = document.createElement('div');
+const nvoMensaje = (array) => {
+  array.forEach(elem => {
+    const fila = document.createElement('div');
   fila.innerHTML = `<img class="avatar" src="${elem.author.avatar}"/>
                     <strong id="author">${elem.author.alias}</strong> 
                     <em id="msg">${elem.text}</em>`;
 
   boxMensajes.appendChild(fila);
+  });
 };
 
 btnMensajes.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
     const data = {
-      id: id.value,
-      nombre: nombreMsj.value,
-      apellido: apellidoMsj.value,
+      email: email.value,
+      nombre: nombre.value,
+      apellido: apellido.value,
       edad: edad.value,
       alias: alias.value,
       avatar: avatar.value,
@@ -55,7 +65,7 @@ btnMensajes.addEventListener('click', async (e) => {
 /////////////////////productos////////////////////////////////
 const botonGuardarProducto = document.getElementById("botonGuardarProducto")
 const precio = document.getElementById('precio')
-const nombre = document.getElementById('nombre')
+const nombreProd = document.getElementById('nombreProd')
 const thumbnail = document.getElementById('thumbnail')
 const tabla = document.getElementById('tableContent')
 
@@ -73,7 +83,7 @@ botonGuardarProducto.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
     const data = {
-      nombre: nombre.value,
+      nombre: nombreProd.value,
       precio: precio.value,
       thumbnail: thumbnail.value
     };
@@ -81,7 +91,7 @@ botonGuardarProducto.addEventListener('click', async (e) => {
     const url = 'http://localhost:8080/api/productos';
     response = await postData(url, data);
 
-     precio.value = '', nombre.value = '', thumbnail.value = '';
+     precio.value = '', nombreProd.value = '', thumbnail.value = '';
   } catch (err) {
     console.log(err);
   }
