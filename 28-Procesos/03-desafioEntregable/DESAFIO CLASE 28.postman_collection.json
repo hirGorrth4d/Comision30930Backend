@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "827d4c67-0cd6-41e1-956e-285ce0688df6",
+		"name": "DESAFIO CLASE 28",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20336046"
+	},
+	"item": [
+		{
+			"name": "ENDPOINT_NORMAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CONSULTA_SIN_QUERY_PARAMS (100000000)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/randoms",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"randoms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CONSULTA_BLOQUEANTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/randoms?cant=500000000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"randoms"
+					],
+					"query": [
+						{
+							"key": "cant",
+							"value": "500000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/INFO-CORRER CON PUERTO 3000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
