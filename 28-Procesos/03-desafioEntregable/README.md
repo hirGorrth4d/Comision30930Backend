@@ -28,7 +28,7 @@ En el archivo PostmanCollections, se pueden encontrar los endpoints:
 
 **localhost:3000/api/randoms?cant=500000000**  => devolverá una consulta **BLOQUEANTE**, que realiza la operación (/utils/operacion.js) solicitando 500.000.000 número aleatorios.
 
-Estos dos últimos son manejados por **randomRouter** (/rotes/randomRouter.js).
+Estos dos últimos son manejados por **randomRouter** (/routes/randomRouter.js).
 
 En estos últimos casos, se genera un child-process con **Fork** que resuelve la consulta permitiendo que los demás endpoints no se bloqueen.
 El proceso padre, le envía un mensaje al child-process indicando la cantidad de números aleatorios que solicita a través de el evento **.send** que recibe por **req.query**, y el child-process le devuelve el resultado de la operación con el evento **on**.
