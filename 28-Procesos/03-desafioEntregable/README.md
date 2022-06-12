@@ -5,6 +5,7 @@
 
 Para correr la aplicación en otro puerto se puede correr el script: 
 **npm run puerto**
+**USAR ESTE PARA VER TODOS LOS ENDPOINTS**
 
 En el package.json esta indicado que corra en el puerto **3000**
 Sino,  si corremos 
@@ -21,7 +22,7 @@ En el archivo PostmanCollections, se pueden encontrar los endpoints:
 
 **localhost:3000/info**  => devolverá una un cuadro con la información correspondiente al proceso, que se estan obteniendo mediante process.argv.
 
-**Lo corremos con puerto 3000 (npm run puerto), porque sino no muestra los argumentos pasados.**
+**Lo corremos con puerto 3000 (npm run puerto), porque sino no muestra los argumentos pasados (por el método .slice).**
 
 **localhost:3000/api/randoms**  => devolverá una consulta **BLOQUEANTE**, que por defecto realiza la operación (/utils/operacion.js) solicitando 100.000.000 número aleatorios por defecto.
 
