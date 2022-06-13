@@ -24,7 +24,7 @@ En el archivo PostmanCollections, se pueden encontrar los endpoints:
 
 **Lo corremos con puerto 3000 (npm run puerto), porque sino no muestra los argumentos pasados (por el método .slice).**
 
-**localhost:3000/api/randoms**  => devolverá una consulta **BLOQUEANTE**, que por defecto realiza la operación (/utils/operacion.js) solicitando 100.000.000 número aleatorios por defecto.
+**localhost:3000/api/randoms**  => devolverá una consulta **BLOQUEANTE**, que por defecto realiza la operación (/utils/operacion.js) solicitando 100.000.000 números aleatorios por defecto.
 
 **localhost:3000/api/randoms?cant=500000000**  => devolverá una consulta **BLOQUEANTE**, que realiza la operación (/utils/operacion.js) solicitando 500.000.000 número aleatorios.
 
