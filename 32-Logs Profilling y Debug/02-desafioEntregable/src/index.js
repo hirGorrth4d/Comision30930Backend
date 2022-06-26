@@ -4,6 +4,7 @@ import cluster from 'cluster'
 import minimist from 'minimist';
 import os from 'os'
 
+
 const numCPUs = os.cpus().length;
 
 const optionalArgsObject = {
@@ -51,3 +52,4 @@ if (modoCluster && cluster.isPrimary) {
   }
   init()
 }
+

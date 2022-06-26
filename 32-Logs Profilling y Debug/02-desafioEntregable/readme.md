@@ -1,5 +1,15 @@
-#Para correr la primera parte del desafío:
+##desafio clase 32
+1-En la ruta /info se puede testear el uso de GZIP.
 
+2- TODAS LAS RUTAS DE LA CARPETA ROUTES Cuentan con sus loggers.
+INFO, se ve por consola y WARN Y ERRORS SE VEN EN UN ARCHIVO, en la carpeta logs.
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+##DESAFIO CLASE 30
 Usar:
 npm run prod:fork (Este no hace falta en realidad, simplemente no tiene el Argv modo CLUSTER)
 npm run prod:cluster

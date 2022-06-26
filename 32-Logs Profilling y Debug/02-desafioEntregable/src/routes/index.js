@@ -2,6 +2,7 @@ import passport from 'passport';
 import os from 'os';
 import { Router } from "express";
 import compression from 'compression';
+import { logger } from '../utils/logger';
 
 const router = Router();
 
@@ -23,10 +24,17 @@ const infodelProceso = {
 }
 
 router.get('/info', compression(), (req,res) => {
-  const data = infodelProceso
-  res.render('info', {data})
+  try {
+    logger.info('RUTA: /info || METODO: get')
+    const data = infodelProceso
+    res.render('info', {data})
+  } catch (error) {
+    logger.error('RUTA: /info || METODO: get')
+  }
 })
 
+
+//------------------------------------------------------------------------//
 //passport
 const passportOptions = { badRequestMessage: "falta username / password" };
 
@@ -42,17 +50,25 @@ const isLoggedIn = (req, res, next) => {
 
 /* --------- REGISTER ---------- */
 router.get('/signup', (req, res) => {
-  res.render('register');
+  try {
+    logger.info('RUTA: /signup || METODO: get')
+    res.render('register');
+  } catch (error) {
+    logger.error('RUTA: /signup || METODO: get')
+  }
 });
 //SIGN UP
 router.post('/signup', (req, res, next) => {
+  logger.info('RUTA: /signup || METODO: post')
   passport.authenticate('signup', passportOptions, (err, user, info) => {
-    console.log('Info SIGNUP');
-    console.log(err, user, info);
+
     if (err) {
+      logger.error('RUTA: /signup || METODO: post')
       return next(err);
     }
-    if (!user) return res.render('register-error')
+    if (!user) {
+      logger.warn('RUTA: /signup || METODO: post')
+      return res.render('register-error')}
 
     res.render('usuarioCreado')
   })(req, res, next);
@@ -60,34 +76,48 @@ router.post('/signup', (req, res, next) => {
 
 /* --------- LOGIN ---------- */
 router.get('/login', (req, res) => {
+  logger.info('RUTA: /login || METODO: get')
   res.render('login')
 })
 /* --------- LOGIN-Error---------- */
 router.get('/login-error', (req, res) => {
+  logger.error('RUTA: /login || METODO: get')
   res.render('login-error')
 });
 //LOGIN
 router.post('/login',
   passport.authenticate('login',{failureRedirect: '/login-error', failureMessage: true}),
   (req, res) => {
-     res.redirect('/datos')
+    try {
+      logger.info('RUTA: /login || METODO: post')
+      res.redirect('/datos')
+    } catch (error) {
+      logger.error('RUTA: /login || METODO: post')
+    }
   },
 )
 
 /* --------- DATOS ---------- */
 router.get('/datos', isLoggedIn, async(req, res,) => {
-  const datos = req.user
-  const nombre = datos.username
-  res.render('datos', {nombre})
+  try {
+    logger.info('RUTA: /datos || METODO: get')
+    const datos = req.user
+    const nombre = datos.username
+    res.render('datos', {nombre})
+  } catch (error) {
+    logger.error('RUTA: /datos || METODO: get')
+  }
 })
 
 //GET
 router.get("/",(req, res) => {
- res.redirect('/datos')
+  logger.info('RUTA: / || METODO: get')
+  res.redirect('/datos')
 });
 
 /* --------- LOGOUT ---------- */
 router.get('/logout', (req, res) => {
+  logger.info('RUTA: /logout || METODO: get')
   const datos = req.user
   const nombre = datos.username
   res.render('logout',{nombre})

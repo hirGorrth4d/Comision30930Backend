@@ -8,6 +8,7 @@ import session from "express-session";
 import passport from "passport";
 import { loginFunc, signupFunc } from "./auth";
 import MongoStore from 'connect-mongo'
+import { logger } from '../utils/logger';
 
 const app = express();
 app.use(express.json());
@@ -67,5 +68,11 @@ app.engine(
 
 app.use(mainRouter);
 app.use('/api', randomRouter)
+
+//MANEJO DE RUTAS INEXISTENTES
+app.use( (req,res) => {
+  res.status(404)
+  logger.warn('RUTA: /rutas inexistentes || METODO: get')
+})
 
 export default app;
