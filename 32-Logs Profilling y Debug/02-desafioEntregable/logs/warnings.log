@@ -1,3 +1,5 @@
 {"level":"error","message":"RUTA: /login || METODO: get"}
 {"level":"error","message":"RUTA: /rutas inexistentes || METODO: get"}
 {"level":"warn","message":"RUTA: /rutas inexistentes || METODO: get"}
+{"level":"warn","message":"RUTA: /rutas inexistentes || METODO: get"}
+{"level":"warn","message":"RUTA: /rutas inexistentes || METODO: get"}

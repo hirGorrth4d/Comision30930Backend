@@ -4,6 +4,8 @@
 2- TODAS LAS RUTAS DE LA CARPETA ROUTES Cuentan con sus loggers.
 INFO, se ve por consola y WARN Y ERRORS SE VEN EN UN ARCHIVO, en la carpeta logs.
 
+EL MANEJO DE RUTAS INEXISTENTES: se encuentra en server.js, y lanza un warn log si la ruta pedida no existe.
+
 
 
 

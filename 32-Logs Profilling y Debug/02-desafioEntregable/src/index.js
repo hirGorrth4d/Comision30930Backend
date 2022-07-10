@@ -15,7 +15,7 @@ const optionalArgsObject = {
   },
   default: {
     //Si no nos envian el argumento, se setea por default
-    p: 8080,
+    p: 8081,
     m:'FORK'
   },
 };
@@ -27,6 +27,7 @@ const modoCluster = args.modo === 'CLUSTER'
 
 if (modoCluster && cluster.isPrimary) {
   console.log('MODO CLUSTER');
+  console.log('PID MASTER: ', process.pid);
   
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork()
@@ -40,6 +41,7 @@ if (modoCluster && cluster.isPrimary) {
 
   const init = async () => {
     console.log('MODO FORK');
+    console.log('PID WORKER: ', process.pid);
     await initDb()
     console.log('Conectado a la DB');
   

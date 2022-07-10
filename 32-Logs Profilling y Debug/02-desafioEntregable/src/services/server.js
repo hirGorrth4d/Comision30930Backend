@@ -21,9 +21,7 @@ const ttlSeconds = 600;
 const StoreOptions = {
   store: MongoStore.create({
     mongoUrl: config.MONGO_ATLAS_URL,
-    // crypto: {
-    //   secret: 'squirrel',
-    // },
+
   }),
   secret: 'shhhhhhhhhhhhhhhhhhhhh',
   resave: false,

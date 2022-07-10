@@ -1,11 +1,3 @@
-//funcion numeros aleatorios
-
-
-
-const datos = {
-    puerto: process.argv.puerto,
-    proceso: process.pid
-}
 
 const calcularNumeros = (cant) => {
 
@@ -35,6 +27,6 @@ process.on('message', (msg) => {
       const cant = msg
        sum = calcularNumeros(cant);
     }
-      process.send(datos);
+      process.send(sum);
     
   });
