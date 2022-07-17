@@ -1,0 +1,1297 @@
+{
+	"info": {
+		"_postman_id": "cfa1b345-4ebd-4b3d-8ad7-7c44cf77445a",
+		"name": "3ra entrega",
+		"description": "Para correr la parte del cliente iniciar NPM START en la carpeta /client\n\nPara iniciar el servidor correr el comando NPM START en la carpeta /server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20336046"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "Signup User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"email\": \"noe@cid.com\",\r\n    \"password\": \"password\",\r\n    \"firstName\": \"Noe\",\r\n    \"lastName\": \"Cid\",\r\n    \"age\": 29,\r\n    \"admin\": true,\r\n    \"address\": {\r\n      \"street\": \"Siempreviva 742\",\r\n      \"city\": \"Springfield\"\r\n      }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \r\n    \"email\": \"noe@cid.com\",\r\n    \"password\": \"password\",\r\n    \"firstName\": \"Noe\",\r\n    \"lastName\": \"Cid\",\r\n    \"age\": 29,\r\n    \"admin\": true,\r\n    \"address\": {\r\n      \"street\": \"Siempreviva 742\",\r\n      \"city\": \"Springfield\"\r\n      }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "352"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"160-tiqDxQIKutAw8XLjWNfQ3b7MolM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:08:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"signup OK\",\n    \"user\": {\n        \"email\": \"noe@cid.com\",\n        \"password\": \"$2b$10$XFm5ip11UDR5EFoluES6rO2ZXXKU1/QN6bLQtM4yU0AbpPS.xw4Ym\",\n        \"firstName\": \"Noe\",\n        \"lastName\": \"Cid\",\n        \"age\": 29,\n        \"admin\": true,\n        \"address\": {\n            \"street\": \"Siempreviva 742\",\n            \"city\": \"Springfield\"\n        },\n        \"_id\": \"62d488620267b7c4b875d606\",\n        \"createdAt\": \"2022-07-17T22:08:34.581Z\",\n        \"updatedAt\": \"2022-07-17T22:08:34.581Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"email\": \"noe@cid.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \r\n    \"email\": \"noe@cid.com\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "351"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15f-j8R3E6MNG//C4ajnaHlfb00/RRg\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AJXciJg6qsR6oYHrekfUL2iLFKgTPyVl5.qxwXUH0JEh43UHgbGXqM8N2In1btd7VCGM5vi2oTEMI; Path=/; Expires=Sun, 17 Jul 2022 22:41:01 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:11:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"login OK\",\n    \"user\": {\n        \"address\": {\n            \"street\": \"Siempreviva 742\",\n            \"city\": \"Springfield\"\n        },\n        \"_id\": \"62d488620267b7c4b875d606\",\n        \"email\": \"noe@cid.com\",\n        \"password\": \"$2b$10$XFm5ip11UDR5EFoluES6rO2ZXXKU1/QN6bLQtM4yU0AbpPS.xw4Ym\",\n        \"firstName\": \"Noe\",\n        \"lastName\": \"Cid\",\n        \"age\": 29,\n        \"admin\": true,\n        \"createdAt\": \"2022-07-17T22:08:34.581Z\",\n        \"updatedAt\": \"2022-07-17T22:08:34.581Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCTS",
+			"item": [
+				{
+					"name": "All products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cuaderno\",\r\n    \"description\": \"A3- hojas cuadriculadas\",\r\n    \"price\": 5000,\r\n    \"stock\": 40,\r\n    \"categoryId\":\"62d483b00267b7c4b875d5f6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post a product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Cuaderno\",\r\n    \"description\": \"A3- hojas cuadriculadas\",\r\n    \"price\": 5000,\r\n    \"stock\": 40,\r\n    \"categoryId\":\"62d483b00267b7c4b875d5f6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-HwL9ywCxlScn8irOFi0I/cIzOcE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:55:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"product created\",\n    \"data\": {\n        \"name\": \"Cuaderno\",\n        \"description\": \"A3- hojas cuadriculadas\",\n        \"price\": 5000,\n        \"stock\": 40,\n        \"categoryId\": \"62d483b00267b7c4b875d5f6\",\n        \"_id\": \"62d485400267b7c4b875d5fd\",\n        \"createdAt\": \"2022-07-17T21:55:12.017Z\",\n        \"updatedAt\": \"2022-07-17T21:55:12.017Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/62d486460267b7c4b875d603",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"62d486460267b7c4b875d603"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "product by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/products/62d485400267b7c4b875d5fd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products",
+										"62d485400267b7c4b875d5fd"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f3-nEQKq58lbl93pfEmusH6eyNycUg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:56:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"62d485400267b7c4b875d5fd\",\n        \"name\": \"Cuaderno\",\n        \"description\": \"A3- hojas cuadriculadas\",\n        \"price\": 5000,\n        \"stock\": 40,\n        \"categoryId\": \"62d483b00267b7c4b875d5f6\",\n        \"createdAt\": \"2022-07-17T21:55:12.017Z\",\n        \"updatedAt\": \"2022-07-17T21:55:12.017Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cuaderno\",\r\n    \"description\": \"A4- hojas cuadriculadas\",\r\n    \"price\": 5000,\r\n    \"stock\": 40,\r\n    \"categoryId\":\"62d483b00267b7c4b875d5f6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/62d486460267b7c4b875d603",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"62d486460267b7c4b875d603"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Cuaderno\",\r\n    \"description\": \"A4- hojas cuadriculadas\",\r\n    \"price\": 5000,\r\n    \"stock\": 40,\r\n    \"categoryId\":\"62d483b00267b7c4b875d5f6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/products/62d485400267b7c4b875d5fd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products",
+										"62d485400267b7c4b875d5fd"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-dc9l2uBPaVwzDP8kwgEeRKEcq8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:57:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"product updated\",\n    \"data\": {\n        \"_id\": \"62d485400267b7c4b875d5fd\",\n        \"name\": \"Cuaderno\",\n        \"description\": \"A4- hojas cuadriculadas\",\n        \"price\": 5000,\n        \"stock\": 40,\n        \"categoryId\": \"62d483b00267b7c4b875d5f6\",\n        \"createdAt\": \"2022-07-17T21:55:12.017Z\",\n        \"updatedAt\": \"2022-07-17T21:57:44.713Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/62d486460267b7c4b875d603",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"62d486460267b7c4b875d603"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/products/62d485400267b7c4b875d5fd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"products",
+										"62d485400267b7c4b875d5fd"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19-bxg72fa+m/JIzfLNQ2kjepy7+mM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:58:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Product deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CARTS",
+			"item": [
+				{
+					"name": "Get Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"cart"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15-yQWhin5yB3cFpS8CApU6EHwPgxQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:01:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Unathorized\"\n}"
+						},
+						{
+							"name": "Get Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ab-r8CrBjwcf3PVlwwEIb5/xdMfXzE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:11:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"62d488620267b7c4b875d608\",\n        \"userId\": \"62d488620267b7c4b875d606\",\n        \"products\": [],\n        \"createdAt\": \"2022-07-17T22:08:34.916Z\",\n        \"updatedAt\": \"2022-07-17T22:08:34.916Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"62d486460267b7c4b875d603\",\r\n    \"amount\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/cart/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\":\"62d486460267b7c4b875d603\",\r\n    \"amount\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/cart/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"cart",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f3-/VVyc3U314AdMKQ2Pv0jZ+rjVy8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:51:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Product Added\",\n    \"data\": {\n        \"_id\": \"62d488620267b7c4b875d608\",\n        \"userId\": \"62d488620267b7c4b875d606\",\n        \"products\": [\n            {\n                \"productId\": \"62d486460267b7c4b875d603\",\n                \"items\": 4\n            }\n        ],\n        \"createdAt\": \"2022-07-17T22:08:34.916Z\",\n        \"updatedAt\": \"2022-07-17T22:51:33.400Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "remove a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"62d486460267b7c4b875d603\",\r\n    \"amount\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/cart/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cart",
+								"remove"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "remove a product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\":\"62d486460267b7c4b875d603\",\r\n    \"amount\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/cart/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"cart",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c3-IlW/p7uvNFka30LUBpZ+1drSZrU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 22:53:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Product Deleted\",\n    \"data\": {\n        \"_id\": \"62d488620267b7c4b875d608\",\n        \"userId\": \"62d488620267b7c4b875d606\",\n        \"products\": [],\n        \"createdAt\": \"2022-07-17T22:08:34.916Z\",\n        \"updatedAt\": \"2022-07-17T22:53:34.880Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORIES",
+			"item": [
+				{
+					"name": "all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categories/62d483b00267b7c4b875d5f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories",
+								"62d483b00267b7c4b875d5f6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Category by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/categories/62d4827b0267b7c4b875d5ef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"categories",
+										"62d4827b0267b7c4b875d5ef"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ca-LlW4BgsaSkOndR8W1kfhiEqwIM4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:44:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"62d4827b0267b7c4b875d5ef\",\n        \"name\": \"Libreria\",\n        \"description\": \"Productos escolares para primaria y secundaria\",\n        \"createdAt\": \"2022-07-17T21:43:23.511Z\",\n        \"updatedAt\": \"2022-07-17T21:43:23.511Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "new category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Libreria\",\r\n    \"description\": \"Productos escolares para primaria y secundaria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "new category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Libreria\",\r\n    \"description\": \"Productos escolares para primaria y secundaria\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e3-l/ejfvab2qFEM7vAVTrcV1O0jCI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:43:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"category created\",\n    \"data\": {\n        \"name\": \"Libreria\",\n        \"description\": \"Productos escolares para primaria y secundaria\",\n        \"_id\": \"62d4827b0267b7c4b875d5ef\",\n        \"createdAt\": \"2022-07-17T21:43:23.511Z\",\n        \"updatedAt\": \"2022-07-17T21:43:23.511Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit category by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Libreria 2\",\r\n    \"description\": \"Productos escolares para primaria y secundaria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categories/62d483b00267b7c4b875d5f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories",
+								"62d483b00267b7c4b875d5f6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "element edited",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Libreria 2\",\r\n    \"description\": \"Productos escolares para primaria y secundaria\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/categories/62d4827b0267b7c4b875d5ef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"categories",
+										"62d4827b0267b7c4b875d5ef"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-9cGMzVAqKHkQ0Oy6Ng5StbkwZ08\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:46:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"category updated\",\n    \"data\": {\n        \"_id\": \"62d4827b0267b7c4b875d5ef\",\n        \"name\": \"Libreria 2\",\n        \"description\": \"Productos escolares para primaria y secundaria\",\n        \"createdAt\": \"2022-07-17T21:43:23.511Z\",\n        \"updatedAt\": \"2022-07-17T21:46:40.361Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categories/62d4827b0267b7c4b875d5ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories",
+								"62d4827b0267b7c4b875d5ef"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/api/categories/62d4827b0267b7c4b875d5ef",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"categories",
+										"62d4827b0267b7c4b875d5ef"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-GmaDNzNJGeTYfNVU9M+05fgGwR8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Jul 2022 21:48:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Category deleted\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
