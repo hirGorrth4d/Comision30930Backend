@@ -1,0 +1,13 @@
+config:
+  target: 'http://localhost:8082'
+  phases:
+    - duration: 5
+      arrivalRate: 50
+      name: Warm up
+
+scenarios:
+  - name: 'Go to /info'
+    flow:
+      - get:
+          url: '/info'
+      

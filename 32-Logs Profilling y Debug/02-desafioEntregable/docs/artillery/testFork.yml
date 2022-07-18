@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:8081'
+  #The following example generates 50 virtual users every second for 5 seconds:
+  phases:
+    - duration: 5
+      arrivalRate: 50
+      name: Warm up
+
+#Every user will do the following requests
+scenarios:
+  - name: 'Go to /info'
+    flow:
+      - get:
+          url: '/info'
+      

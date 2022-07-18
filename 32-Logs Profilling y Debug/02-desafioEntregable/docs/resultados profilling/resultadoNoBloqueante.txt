@@ -1,0 +1,221 @@
+Statistical profiling result from resultadoProf.log, (13462 ticks, 1 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+  12895   95.8%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    521    3.9%          C:\Program Files\nodejs\node.exe
+      2    0.0%          C:\WINDOWS\System32\KERNELBASE.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    0.0%   13.6%  LazyCompile: *resolve node:path:158:10
+      5    0.0%   11.4%  LazyCompile: *wrap C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      2    0.0%    4.5%  RegExp: ^(?:[^\x00]*?(?=(\{\{)))
+      2    0.0%    4.5%  LazyCompile: *parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1    0.0%    2.3%  RegExp: ^text\/|^application\/(javascript|json)
+      1    0.0%    2.3%  RegExp: ^\[.*\]$
+      1    0.0%    2.3%  RegExp: ^(?:\}\}\}\})
+      1    0.0%    2.3%  RegExp: ^(?:\{\{(~)?\^\s*(~)?\}\})
+      1    0.0%    2.3%  RegExp: ^(?:\{\{(~)?\/)
+      1    0.0%    2.3%  RegExp: ^(?:\{\{(~)?#\*?)
+      1    0.0%    2.3%  RegExp: (^|\r?\n)\s*?$
+      1    0.0%    2.3%  RegExp: (?:\r\n?|\n).*
+      1    0.0%    2.3%  LazyCompile: *toNamespacedPath node:path:618:19
+      1    0.0%    2.3%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    0.0%    2.3%  LazyCompile: *normalizeString node:path:66:25
+      1    0.0%    2.3%  LazyCompile: *next C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express\lib\router\index.js:177:16
+      1    0.0%    2.3%  LazyCompile: *getEncodingOps node:buffer:679:24
+      1    0.0%    2.3%  LazyCompile: *anonymous C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      1    0.0%    2.3%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:583:37
+      1    0.0%    2.3%  Function: ^writeOrBuffer node:internal/streams/writable:365:23
+      1    0.0%    2.3%  Function: ^socketOnDrain node:_http_server:564:23
+      1    0.0%    2.3%  Function: ^realpathSync node:fs:2425:22
+      1    0.0%    2.3%  Function: ^readableAddChunk node:internal/streams/readable:236:26
+      1    0.0%    2.3%  Function: ^preparePath C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\helpers.js:63:21
+      1    0.0%    2.3%  Function: ^make C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\minimatch\minimatch.js:160:15
+      1    0.0%    2.3%  Function: ^initialize C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\passport\lib\middleware\initialize.js:51:29
+      1    0.0%    2.3%  Function: ^hrtime node:internal/process/per_thread:79:16
+      1    0.0%    2.3%  Function: ^compile C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    0.0%    2.3%  Function: ^braceExpand C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\minimatch\minimatch.js:248:22
+      1    0.0%    2.3%  Function: ^begin C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:533:34
+      1    0.0%    2.3%  Function: ^_getFile C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express-handlebars\lib\express-handlebars.js:299:17
+      1    0.0%    2.3%  Function: ^Module._load node:internal/modules/cjs/loader:757:24
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     43    0.3%   97.7%  JavaScript
+      0    0.0%    0.0%  C++
+     16    0.1%   36.4%  GC
+  13418   99.7%          Shared libraries
+      1    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+  12895   95.8%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    521    3.9%  C:\Program Files\nodejs\node.exe
+    335   64.3%    C:\Program Files\nodejs\node.exe
+     82   24.5%      Function: ^compileFunction node:vm:308:25
+     82  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+     81   98.8%          Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+     78   96.3%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      3    3.7%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1    1.2%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+     32    9.6%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+     32  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+     32  100.0%          Function: ^Socket._writeGeneric node:net:791:42
+     32  100.0%            Function: ^Socket._write node:net:828:35
+     24    7.2%      Function: ^stat node:internal/modules/cjs/loader:151:14
+     16   66.7%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+     13   81.3%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+     13  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      3   18.8%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      3  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      8   33.3%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      6   75.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      6  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1   12.5%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1   12.5%          Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+     18    5.4%      C:\Program Files\nodejs\node.exe
+      3   16.7%        Function: ^FastBuffer node:internal/buffer:958:14
+      3  100.0%          Function: ^createUnsafeBuffer node:internal/buffer:1059:28
+      2   66.7%            Function: ^createPool node:buffer:151:20
+      1   33.3%            Function: ^allocate node:buffer:398:18
+      1    5.6%        LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:507:36
+      1  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:572:30
+      1  100.0%            LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:572:30
+      1    5.6%        LazyCompile: ~module.exports C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@colors\colors\lib\system\has-flag.js:27:26
+      1  100.0%          Function: ~<anonymous> C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@colors\colors\lib\system\supports-colors.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1    5.6%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:180:16
+      1  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:287:14
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:273:15
+      1    5.6%        LazyCompile: ~defineIteratorMethods C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:114:33
+      1  100.0%          LazyCompile: ~_regeneratorRuntime C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@babel\runtime\helpers\regeneratorRuntime.js:3:29
+      1  100.0%            Function: ~<anonymous> C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@babel\runtime\regenerator\index.js:1:1
+      1    5.6%        LazyCompile: ~ThemeSetProto.newTheme C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\gauge\theme-set.js:12:35
+      1  100.0%          LazyCompile: ~ThemeSetProto.addTheme C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\gauge\theme-set.js:24:35
+      1  100.0%            Function: ~<anonymous> C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\gauge\themes.js:1:1
+      1    5.6%        LazyCompile: ~<anonymous> C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:23:36
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ~<anonymous> C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:1:1
+      1    5.6%        LazyCompile: *parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%          Function: ^parseWithoutProcessing C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1  100.0%            Function: ^parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      1    5.6%        LazyCompile: *next C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          Function: ^lex C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%            LazyCompile: *parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1    5.6%        Function: ^stat node:internal/modules/cjs/loader:151:14
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1    5.6%        Function: ^realpathSync node:fs:2425:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1    5.6%        Function: ^pipe C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\send\index.js:506:43
+      1  100.0%          Function: ^serveStatic C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\serve-static\index.js:72:31
+      1  100.0%            Function: ^handle C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express\lib\router\layer.js:86:49
+      1    5.6%        Function: ^mergeSource C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:267:36
+      1  100.0%          Function: ^createFunctionContext C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+      1  100.0%            Function: ^compile C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    5.6%        Function: ^checkInvalidHeaderChar node:_http_common:232:32
+      1  100.0%          Function: ^<anonymous> node:_http_outgoing:564:45
+      1  100.0%            Function: ^setHeader node:_http_outgoing:574:57
+      1    5.6%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1    5.6%        Function: ^Minimatch C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\minimatch\minimatch.js:128:20
+      1  100.0%          Function: ^setopts C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\glob\common.js:48:18
+      1  100.0%            Function: ^Glob C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\glob\glob.js:117:15
+     13    3.9%      Function: ^realpathSync node:fs:2425:22
+     13  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+     11   84.6%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      8   72.7%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      3   27.3%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      2   15.4%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+     13    3.9%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      8   61.5%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2   25.0%          Function: ~<anonymous> node:crypto:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2   25.0%          Function: ~<anonymous> node:cluster:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   12.5%          Function: ~<anonymous> node:tls:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   12.5%          Function: ~<anonymous> node:child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   12.5%          Function: ~<anonymous> node:_http_server:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   12.5%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4   30.8%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      4  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1    7.7%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      1  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      8    2.4%      Function: ^openSync node:fs:576:18
+      8  100.0%        Function: ^readFileSync node:fs:450:22
+      8  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      8  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      7    2.1%      Function: ^read node:internal/modules/package_json_reader:16:14
+      7  100.0%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      6   85.7%          Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      6  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1   14.3%          Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      7    2.1%      Function: ^closeSync node:fs:526:19
+      4   57.1%        Function: ^readFileSync node:fs:450:22
+      3   75.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      3  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      1   25.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      3   42.9%        Function: ^closeSync C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\graceful-fs\graceful-fs.js:72:24
+      3  100.0%          Function: ^readFileSync node:fs:450:22
+      3  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      6    1.8%      Function: ^readSync node:fs:684:18
+      6  100.0%        Function: ^tryReadSync node:fs:429:21
+      6  100.0%          Function: ^readFileSync node:fs:450:22
+      4   66.7%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      2   33.3%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      5    1.5%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      5  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1   20.0%          Function: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%          Function: ~<anonymous> node:internal/modules/esm/module_map:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%          Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      5    1.5%      Function: ^statSync node:fs:1543:18
+      5  100.0%        Function: ^tryStat C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express\lib\view.js:174:17
+      5  100.0%          Function: ^resolve C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express\lib\view.js:146:42
+      5  100.0%            Function: ^lookup C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express\lib\view.js:104:40
+      4    1.2%      LazyCompile: *next C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      4  100.0%        LazyCompile: *parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      3   75.0%          Function: ^parseWithoutProcessing C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      3  100.0%            Function: ^parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      1   25.0%          LazyCompile: *render C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express-handlebars\lib\express-handlebars.js:150:15
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      6    1.2%    LazyCompile: *parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      4   66.7%      Function: ^parseWithoutProcessing C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      4  100.0%        Function: ^parse C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      4  100.0%          Function: ^compileInput C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      4  100.0%            Function: ^ret C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:15
+      2   33.3%      LazyCompile: *render C:\Users\noe_m\Documents\ESTUDIOS\CODERHOUSE\4-BACKEND\Comision30930Backend\32-Logs Profilling y Debug\02-desafioEntregable\node_modules\express-handlebars\lib\express-handlebars.js:150:15
+      2  100.0%        C:\Program Files\nodejs\node.exe
+

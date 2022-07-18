@@ -8,22 +8,17 @@ EL MANEJO DE RUTAS INEXISTENTES: se encuentra en server.js, y lanza un warn log 
 
 
 
+3- PROFILING:
 
+CORRER COMANDO NPM RUN start:profilling
 
-----------------------------------------------------------------------------------------------------------------
-##DESAFIO CLASE 30
-Usar:
-npm run prod:fork (Este no hace falta en realidad, simplemente no tiene el Argv modo CLUSTER)
-npm run prod:cluster
+y luego: 
+artillery quick --count 10 -n 50 "http://localhost:8081/info" > result_nobloq.txt
+artillery quick --count 10 -n 50 "http://localhost:8081/info" > result_bloq.txt
 
+4- autocannon
 
-Localhost/info muestra lo pedido.
+Correr el comando: npm run start:autocannon
+ y el script:  autocannon -c 100 -d 15 'http://localhost:8081/info'
 
-Las partes de listados de procesos corrieron bien.
-
-con 
-npm run prod:pm2 se pueden probar las demas rutas
-
-hay que ir a la ruta localhost/info para probar el endpoint comun y poder ver la info del proceso
-
-y en el caso de localhost/api/random, se que cambia a los puertos que le dije en nginx, pero no supe como obtener el numero de puerto. solo el proceso, que es diferente a los de pm2 (corre en los puertos 8082,8083,8084,8085)
+ los resultados de las pruebas estan en la carpeta /docs
